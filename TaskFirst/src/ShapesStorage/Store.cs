@@ -133,6 +133,29 @@ namespace ShapesStorage
 			return valueArea;
 		}
 
+		/// <summary>
+		/// Method for get shape from figures in the list with lager area.
+		/// </summary>
+		/// <returns></returns>
+		public BaseShape GetLargerShapeFromFigures()
+		{
+			Store store = new Store(Figures);
+			double area = store.GetLargerAreaFromFigures();
+			BaseShape largerShape = null;
+			foreach (BaseShape item in Figures)
+			{
+				if (area != 0 && area == item.Area)
+				{
+					largerShape = item;
+				}
+			}
+			return largerShape;
+		}
+
+
+
+
+
 		// <summary>
 		/// Comparison one list with another.
 		/// </summary>

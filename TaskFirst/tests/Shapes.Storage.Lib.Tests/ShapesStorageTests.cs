@@ -142,21 +142,39 @@ namespace Shapes.Storage.Lib.Tests
 		}
 
 		/// <summary>
-		/// Given Average All Perimetr Shape Method When New Shapes Then Out Is Average Value.
+		/// Given Larger Area of Shapes Method When New Shapes Then Out Is Area Value.
 		/// </summary>
 		[Test]
 		public void GivenLargerAreaFromShapeMethod_WhenNewShapes_ThenOutIsLargerAreaValue()
 		{
 			//Arrange
 			Store shapesStore = new Store();
-			//Act
 			shapesStore.AddShape(baseCircleOne);
 			shapesStore.AddShape(baseCircleTwo);
 			shapesStore.AddShape(baseCircleThree);
 			shapesStore.AddShape(baseSquareOne);
-
+			//Act
 			var actualResult = shapesStore.GetLargerAreaFromFigures();
 			var expectedResult = 78.540000000000006d;
+			//Assert		
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+		/// <summary>
+		/// Given Average All Perimetr Shape Method When New Shapes Then Out Is Average Value.
+		/// </summary>
+		[Test]
+		public void GivenLargerShapeFromShapeStore_WhenShapes_ThenOutIsLargerShape()
+		{
+			//Arrange
+			Store shapesStore = new Store();
+			shapesStore.AddShape(baseCircleOne);
+			shapesStore.AddShape(baseCircleTwo);
+			shapesStore.AddShape(baseCircleThree);
+			shapesStore.AddShape(baseSquareOne);
+			//Act
+			var actualResult = shapesStore.GetLargerShapeFromFigures();
+			var expectedResult = baseCircleThree;
 			//Assert		
 			Assert.AreEqual(expectedResult, actualResult);
 		}
