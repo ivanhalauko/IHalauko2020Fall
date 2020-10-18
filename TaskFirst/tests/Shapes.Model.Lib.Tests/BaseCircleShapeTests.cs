@@ -16,7 +16,7 @@ namespace Shapes.Model.Lib.Tests
 		/// <param name="radius">Circle's radius value.</param>
 		/// <param name="expectedArea">Circle's expected area value.</param>
 		[TestCase(100.1, 31478.790000000001)]
-		//[TestCase(-100.1, 31478.790000000001)]
+		[TestCase(-100.1, 31478.790000000001)]
 		public void GivenAreaPropertyCircleShape_WhenRadiusIsPositiveAndNegative_ThenOutIsPositive(double radius, double expectedArea)
 		{
 			//Arrange

@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shapes\BaseCircleShape.cs" />
     <Compile Include="Shapes\BaseShape.cs" />
+    <Compile Include="Shapes\BaseSquareShape.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
