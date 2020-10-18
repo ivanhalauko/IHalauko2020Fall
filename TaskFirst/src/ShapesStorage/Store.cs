@@ -101,6 +101,38 @@ namespace ShapesStorage
 			return sum / countOfList;
 		}
 
+		/// <summary>
+		/// Method for find lager area of all figures in the list.
+		/// </summary>
+		/// <returns></returns>
+		public double GetLargerAreaFromFigures()
+		{
+			int lengthFiguresList = Figures.Count;
+			int i = 0;
+			double[] tempValue = new double[lengthFiguresList];
+
+			double valueArea = 0;
+
+			foreach (BaseShape item in Figures)
+			{
+				valueArea = item.Area;
+				tempValue[i] = valueArea;
+				i++;
+			}
+			for (int k = 0; k < tempValue.Length - 1 && (k + 1) <= tempValue.Length; k++)
+			{
+				if (tempValue[k] < tempValue[k + 1])
+				{
+					valueArea = tempValue[k + 1];
+				}
+				else
+				{
+					return valueArea;
+				}
+			}
+			return valueArea;
+		}
+
 		// <summary>
 		/// Comparison one list with another.
 		/// </summary>
