@@ -179,7 +179,89 @@ namespace Shapes.Storage.Lib.Tests
 			Assert.AreEqual(expectedResult, actualResult);
 		}
 
+		/// <summary>
+		/// Given Average All Perimetr Shape Method When New Shapes Then Out Is Average Value.
+		/// </summary>
+		[Test]
+		public void GivenLargerPerimetrAverageTypeFromShapeStore_WhenAllTypesShapesIsNotNull_ThenOutIsLargerType()
+		{
+			//Arrange
+			Store shapesStore = new Store();
+			shapesStore.AddShape(baseCircleOne);
+			shapesStore.AddShape(baseCircleTwo);
+			shapesStore.AddShape(baseSquareOne);
+			shapesStore.AddShape(baseSquareTwo);
+			shapesStore.AddShape(baseTrapezeOne);
+			shapesStore.AddShape(baseTrapezeTwo);
+			//Act
+			Type actualResult = shapesStore.GetTypeOfLagerAverageFiguresPerimetr();
+			Type expectedResult = baseCircleOne.GetType();
+			//Assert		
+			Assert.AreEqual(expectedResult, actualResult);
+		}
 
+		/// <summary>
+		/// Given Average All Perimetr Shape Method When CircleTypes is null Then Out Is Larger Type.
+		/// </summary>
+		[Test]
+		public void GivenLargerPerimetrAverageTypeFromShapeStore_WhenBaseCircleTypesShapesIsNull_ThenOutIsLargerType()
+		{
+			//Arrange
+			Store shapesStore = new Store();
+			//shapesStore.AddShape(baseCircleOne);
+			//shapesStore.AddShape(baseCircleTwo);
+			shapesStore.AddShape(baseSquareOne);
+			shapesStore.AddShape(baseSquareTwo);
+			shapesStore.AddShape(baseTrapezeOne);
+			shapesStore.AddShape(baseTrapezeTwo);
+			//Act
+			Type actualResult = shapesStore.GetTypeOfLagerAverageFiguresPerimetr();
+			Type expectedResult = baseTrapezeOne.GetType();
+			//Assert		
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+		/// <summary>
+		/// Given Average All Perimetr Shape Method When SquareTypes is null Then Out Is Larger Type.
+		/// </summary>
+		[Test]
+		public void GivenLargerPerimetrAverageTypeFromShapeStore_WhenBaseSquareTypesShapesIsNull_ThenOutIsLargerType()
+		{
+			//Arrange
+			Store shapesStore = new Store();
+			shapesStore.AddShape(baseCircleOne);
+			shapesStore.AddShape(baseCircleTwo);
+			//shapesStore.AddShape(baseSquareOne);
+			//shapesStore.AddShape(baseSquareTwo);
+			shapesStore.AddShape(baseTrapezeOne);
+			shapesStore.AddShape(baseTrapezeTwo);
+			//Act
+			Type actualResult = shapesStore.GetTypeOfLagerAverageFiguresPerimetr();
+			Type expectedResult = baseCircleTwo.GetType();
+			//Assert		
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+		/// <summary>
+		/// Given Average All Perimetr Shape Method When BaseTrapezeTypes is null Then Out Is Larger Type.
+		/// </summary>
+		[Test]
+		public void GivenLargerPerimetrAverageTypeFromShapeStore_WhenBaseTrapezeTypesShapesIsNull_ThenOutIsLargerType()
+		{
+			//Arrange
+			Store shapesStore = new Store();
+			shapesStore.AddShape(baseCircleOne);
+			shapesStore.AddShape(baseCircleTwo);
+			shapesStore.AddShape(baseSquareOne);
+			shapesStore.AddShape(baseSquareTwo);
+			//shapesStore.AddShape(baseTrapezeOne);
+			//shapesStore.AddShape(baseTrapezeTwo);
+			//Act
+			Type actualResult = shapesStore.GetTypeOfLagerAverageFiguresPerimetr();
+			Type expectedResult = baseCircleOne.GetType();
+			//Assert		
+			Assert.AreEqual(expectedResult, actualResult);
+		}
 
 	}
 }

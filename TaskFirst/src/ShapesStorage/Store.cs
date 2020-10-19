@@ -152,6 +152,135 @@ namespace ShapesStorage
 			return largerShape;
 		}
 
+		/// <summary>
+		/// Method for get Average Perimetr From Circle Figures.
+		/// </summary>
+		/// <returns></returns>
+		public double GetAveragePerimetrFromCircleFigures()
+		{
+			double sum = 0;
+			List<BaseCircleShape> tmpCircleList = new List<BaseCircleShape>();
+			if (Figures != null)
+			{
+				foreach (var item in Figures)
+				{
+					if (item.GetType() == typeof(BaseCircleShape))
+					{
+						tmpCircleList.Add((BaseCircleShape)item);
+					}
+				}
+			}
+			if (tmpCircleList.Count != 0)
+			{
+				var countOfList = tmpCircleList.Count();
+				foreach (BaseShape item in tmpCircleList)
+				{
+					sum += item.Perimeter;
+				}
+				return sum / countOfList;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+
+		/// <summary>
+		/// Method for get Average Perimetr From Square Figures.
+		/// </summary>
+		/// <returns></returns>
+		public double GetAveragePerimetrFromSquareFigures()
+		{
+			double sum = 0;
+			List<BaseSquareShape> tmpSquareList = new List<BaseSquareShape>();
+			if (Figures != null)
+			{
+				foreach (var item in Figures)
+				{
+					if (item.GetType() == typeof(BaseSquareShape))
+					{
+						tmpSquareList.Add((BaseSquareShape)item);
+					}
+				}
+			}
+			if (tmpSquareList.Count != 0)
+			{
+				var countOfList = tmpSquareList.Count();
+				foreach (BaseShape item in tmpSquareList)
+				{
+					sum += item.Perimeter;
+				}
+				return sum / countOfList;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+
+		/// <summary>
+		/// Method for get Average Perimetr From Trapeze Figures.
+		/// </summary>
+		/// <returns></returns>
+		public double GetAveragePerimetrFromTrapezeFigures()
+		{
+			double sum = 0;
+			List<BaseTrapezeShape> tmpTrapezeList = new List<BaseTrapezeShape>();			if (Figures != null)
+			{
+				foreach (var item in Figures)
+				{
+					if (item.GetType() == typeof(BaseTrapezeShape))
+					{
+						tmpTrapezeList.Add((BaseTrapezeShape)item);
+					}
+				}
+			}
+			if (tmpTrapezeList.Count != 0)
+			{
+				var countOfList = tmpTrapezeList.Count();
+				foreach (BaseShape item in tmpTrapezeList)
+				{
+					sum += item.Perimeter;
+				}
+				return sum / countOfList;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+
+		/// <summary>
+		/// Method for calculation Average Perimetr of all figures in the list.
+		/// </summary>
+		/// <returns></returns>
+		public Type GetTypeOfLagerAverageFiguresPerimetr()
+		{
+			Store store = new Store(Figures);
+			double tmpCircleAverPerimetr = store.GetAveragePerimetrFromCircleFigures();
+			double tmpSquareAverPerimetr = store.GetAveragePerimetrFromSquareFigures();
+			double tmpTrapezeAverPerimetr = store.GetAveragePerimetrFromTrapezeFigures();
+			Type typeVariable = null;
+			if (tmpSquareAverPerimetr > tmpCircleAverPerimetr &&
+				tmpSquareAverPerimetr > tmpTrapezeAverPerimetr)
+			{
+				typeVariable = typeof(BaseSquareShape);
+				return typeVariable;
+			}
+			if (tmpCircleAverPerimetr > tmpSquareAverPerimetr &&
+					tmpCircleAverPerimetr > tmpTrapezeAverPerimetr)
+			{
+				typeVariable = typeof(BaseCircleShape);
+				return typeVariable;
+			}
+			if (tmpTrapezeAverPerimetr != 0 && tmpTrapezeAverPerimetr > tmpSquareAverPerimetr &&
+				tmpTrapezeAverPerimetr > tmpSquareAverPerimetr)
+			{
+				typeVariable = typeof(BaseTrapezeShape);
+				return typeVariable;
+			}
+			return typeVariable;
+		}
 
 
 
