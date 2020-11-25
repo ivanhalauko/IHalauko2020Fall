@@ -1,4 +1,5 @@
 ﻿using System;
+using Bakery.Model.ProductComposition;
 
 namespace Bakery.Model.Products
 {
@@ -8,6 +9,10 @@ namespace Bakery.Model.Products
 	public class Bread : BaseAbstractProduct
 	{
 		/// <summary>
+		/// Bread's composition.
+		/// </summary>
+		public BreadsComposition Composition { get; }
+		/// <summary>
 		/// Product's cost.
 		/// </summary>
 		public decimal Cost { get; }
@@ -15,7 +20,7 @@ namespace Bakery.Model.Products
 		/// <summary>
 		/// Property product's total caloricity.
 		/// </summary>
-		public override double CaloricityOnePiece { get; }
+		public override double CaloricityOnePiece => Composition.GetCaloricityOnePeace(WeightOnePiece);
 
 		/// <summary>
 		/// Product's total cost.
@@ -42,6 +47,8 @@ namespace Bakery.Model.Products
 		public Bread(double weightOnePiece, int quantityProduct, decimal tradeMargin) : this(quantityProduct, tradeMargin)
 		{
 			WeightOnePiece = weightOnePiece;
+			Composition = new BreadsComposition(weightOnePiece);
+			Cost = Composition.GetCostOnePeace(weightOnePiece);
 		}
 
 		/// <summary>
