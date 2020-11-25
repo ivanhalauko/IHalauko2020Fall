@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Service", "src\Baker
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.ServiceTests", "tests\Bakery.ServiceTests\Bakery.ServiceTests.csproj", "{10CD5D2A-E79C-439F-B8F9-C2D5267402F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{6488AA63-B8AB-4187-BD6A-78542E7D49BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

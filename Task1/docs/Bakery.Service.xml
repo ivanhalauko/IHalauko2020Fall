@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bakery.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Bakery.Service.Interfaces.IBakeryService">
+            <summary>
+            Interface IBakeryService.
+            </summary>
+        </member>
+        <member name="M:Bakery.Service.Interfaces.IBakeryService.OrderByCaloricity(Bakery.Model.Products.BaseAbstractProduct[])">
+            <summary>
+            Products array OrderByCaloricity.
+            </summary>
+            <param name="ArrayBakeryProducts">Array bakery products.</param>
+            <returns>Array bakery products ordered by caloricity.</returns>
+        </member>
+        <member name="M:Bakery.Service.Interfaces.IBakeryService.OrderByCost(Bakery.Model.Products.BaseAbstractProduct[])">
+            <summary>
+            Products array OrderByCost.
+            </summary>
+            <param name="ArrayBakeryProducts">Array bakery products.</param>
+            <returns>Array bakery products ordered by Cost.</returns>
+        </member>
+        <member name="M:Bakery.Service.Interfaces.IBakeryService.FindProductByPropertes(System.Decimal,System.Double)">
+            <summary>
+            Find product by propertes method.
+            </summary>
+            <param name="costProduct">CostProduct parameter.</param>
+            <param name="caloricity">Caloricity parameter.</param>
+            <returns>Products.</returns>
+        </member>
+        <member name="T:Bakery.Service.Repository.BakeryServiceRepository">
+            <summary>
+            BakeryServiceRepository class.
+            </summary>
+        </member>
+        <member name="F:Bakery.Service.Repository.BakeryServiceRepository.ArrayBakeryProducts">
+            <summary>
+            Property with BakeryProducts array.
+            </summary>
+        </member>
+        <member name="M:Bakery.Service.Repository.BakeryServiceRepository.#ctor(System.Int32)">
+            <summary>
+            Constructor for init BakeryServiceRepository array.
+            </summary>
+            <param name="countOfArray">CountOfArray parameter.</param>
+        </member>
+        <member name="M:Bakery.Service.Repository.BakeryServiceRepository.OrderByCaloricity(Bakery.Model.Products.BaseAbstractProduct[])">
+            <summary>
+            Products array OrderByCaloricity.
+            </summary>
+            <param name="ArrayBakeryProducts">Array bakery products.</param>
+            <returns>Array bakery products ordered by caloricity.</returns>
+        </member>
+        <member name="M:Bakery.Service.Repository.BakeryServiceRepository.OrderByCost(Bakery.Model.Products.BaseAbstractProduct[])">
+            <summary>
+            Products array OrderByCost.
+            </summary>
+            <param name="ArrayBakeryProducts">Array bakery products.</param>
+            <returns>Array bakery products ordered by Cost.</returns>
+        </member>
+        <member name="M:Bakery.Service.Repository.BakeryServiceRepository.FindProductByPropertes(System.Decimal,System.Double)">
+            <summary>
+            Find product by propertes method.
+            </summary>
+            <param name="costProduct">CostProduct parameter.</param>
+            <param name="caloricity">Caloricity parameter.</param>
+            <returns>Products.</returns>
+        </member>
+    </members>
+</doc>
