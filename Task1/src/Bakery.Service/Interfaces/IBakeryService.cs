@@ -30,20 +30,19 @@ namespace Bakery.Service.Interfaces
 		/// <returns>Products.</returns>
 		BaseAbstractProduct FindProductByPropertes(decimal costProduct, double caloricity);
 
-		/// <summary>
-		/// Find products by weight.
-		/// </summary>
-		/// <param name="costProduct">CostProduct parameter.</param>
-		/// <param name="caloricity">Caloricity parameter.</param>
-		/// <returns>Product.</returns>
-		BaseAbstractProduct FindProductsByWeight(decimal costProduct, double caloricity);
+		///// <summary>
+		///// Find products by weight.
+		///// </summary>
+		///// <param name="costProduct">CostProduct parameter.</param>
+		///// <param name="caloricity">Caloricity parameter.</param>
+		///// <returns>Product.</returns>
+		//BaseAbstractProduct FindProductsByIngridientWeight(string typeIngridient, double weightIngridient);
 
-		/// <summary>
-		/// Find products by IngredientsCounts.
-		/// </summary>
-		/// <param name="countIngredients">CountIngredients parameter.</param>
-		/// <returns>Product.</returns>
-		BaseAbstractProduct FindProductsByIngredientsCountsMore(int countIngredients);
-
+		///// <summary>
+		///// Find products by IngredientsCounts.
+		///// </summary>
+		///// <param name="countIngredients">CountIngredients parameter.</param>
+		///// <returns>Product.</returns>
+		//BaseAbstractProduct FindProductsByIngredientsCountsMore(int countIngredients);
 	}
 }
