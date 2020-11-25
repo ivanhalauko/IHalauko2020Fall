@@ -3,9 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6D17F8D6-8E7E-4BCB-A4E3-7A158C4D4D02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{00CA3B35-1B3E-4228-B277-252B0D59C5D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Data", "src\Bakery.Data\Bakery.Data.csproj", "{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Model", "src\Bakery.Model\Bakery.Model.csproj", "{66B99824-D32C-4833-A3C6-9C7326EB538C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.ModelTests", "tests\Bakery.ModelTests\Bakery.ModelTests.csproj", "{ABB08DED-1C60-4113-9906-7F0CEE3B59BC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B99824-D32C-4833-A3C6-9C7326EB538C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B99824-D32C-4833-A3C6-9C7326EB538C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B99824-D32C-4833-A3C6-9C7326EB538C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B99824-D32C-4833-A3C6-9C7326EB538C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB08DED-1C60-4113-9906-7F0CEE3B59BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB08DED-1C60-4113-9906-7F0CEE3B59BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB08DED-1C60-4113-9906-7F0CEE3B59BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB08DED-1C60-4113-9906-7F0CEE3B59BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C44AB6E-8791-43CA-A100-D4AF9EEEFE22} = {6D17F8D6-8E7E-4BCB-A4E3-7A158C4D4D02}
+		{66B99824-D32C-4833-A3C6-9C7326EB538C} = {6D17F8D6-8E7E-4BCB-A4E3-7A158C4D4D02}
+		{ABB08DED-1C60-4113-9906-7F0CEE3B59BC} = {00CA3B35-1B3E-4228-B277-252B0D59C5D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A736387-7D4A-4378-927D-568A7BA552A8}
