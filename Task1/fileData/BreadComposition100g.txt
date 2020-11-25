@@ -1,0 +1,5 @@
+water; 30
+flour; 30
+yeast; 10
+egge; 30
+

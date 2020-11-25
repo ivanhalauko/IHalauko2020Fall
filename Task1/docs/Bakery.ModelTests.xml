@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bakery.ModelTests</name>
+    </assembly>
+    <members>
+        <member name="T:Bakery.ModelTests.BreadTests">
+            <summary>
+            Test cases to testing class Bread.
+            </summary>
+        </member>
+    </members>
+</doc>

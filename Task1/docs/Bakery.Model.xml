@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bakery.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Bakery.Model.Ingredients.BaseAbstractIngredient">
+            <summary>
+            Abstract BaseAbstractIngredient class.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Ingredients.BaseAbstractIngredient.Cost">
+            <summary>
+            Property cost ingredient.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Ingredients.BaseAbstractIngredient.EnergyValue">
+            <summary>
+            Property energy value ingredient.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Ingredients.BaseAbstractIngredient.Weight">
+            <summary>
+            Property weight ingredient.
+            </summary>
+        </member>
+        <member name="T:Bakery.Model.Ingredients.Butter">
+            <summary>
+            Butter Ingredient class. 
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.Ingredients.Butter.#ctor(System.Double)">
+            <summary>
+            Constuctor with parameter.
+            </summary>
+            <param name="weight">Ingredient's weight parameter.</param>
+        </member>
+        <member name="T:Bakery.Model.Ingredients.Flour">
+            <summary>
+            Flour Ingredient class. 
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.Ingredients.Flour.#ctor(System.Double)">
+            <summary>
+            Constuctor with parameter.
+            </summary>
+            <param name="weight">Ingredient's weight parameter.</param>
+        </member>
+        <member name="T:Bakery.Model.ProductComposition.BreadsComposition">
+            <summary>
+            Product's BreadsComposition class.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.ProductComposition.BreadsComposition.Butter">
+            <summary>
+            Product's butter property.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.ProductComposition.BreadsComposition.Flour">
+            <summary>
+            Product's flour property.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.ProductComposition.BreadsComposition.WeightOnePiece">
+            <summary>
+            Product's WeightOnePiece property.
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.ProductComposition.BreadsComposition.#ctor(System.Double)">
+            <summary>
+            Product's BreadsComposition constructor with parameters.
+            </summary>
+            <param name="weightOnePiece">Product's weightOnePiece parameter.</param>
+        </member>
+        <member name="M:Bakery.Model.ProductComposition.BreadsComposition.GetCaloricityOnePeace(System.Double)">
+            <summary>
+            Product's GetCaloricityOnePeace method with parameters.
+            </summary>
+            <param name="weightOnePiece">Product's weightOnePiece parameter.</param>
+            <returns>CaloricityOnePeace.</returns>
+        </member>
+        <member name="M:Bakery.Model.ProductComposition.BreadsComposition.GetCostOnePeace(System.Double)">
+            <summary>
+            Product's GetCostOnePeace method with parameters.
+            </summary>
+            <param name="weightOnePiece">Product's weightOnePiece parameter.</param>
+            <returns>CostOnePeace.</returns>
+        </member>
+        <member name="T:Bakery.Model.ProductComposition.IProductComposition">
+            <summary>
+            Interface IProductComposition.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.ProductComposition.IProductComposition.WeightOnePiece">
+            <summary>
+            Products's property WeightOnePiece.
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.ProductComposition.IProductComposition.GetCaloricityOnePeace(System.Double)">
+            <summary>
+            Products's method GetCaloricityOnePeace.
+            </summary>
+            <param name="weightOnePiece">Products's parameter WeightOnePiece.</param>
+            <returns>Product's CaloricityOnePeace.</returns>
+        </member>
+        <member name="M:Bakery.Model.ProductComposition.IProductComposition.GetCostOnePeace(System.Double)">
+            <summary>
+            Products's method GetCostOnePeace.
+            </summary>
+            <param name="weightOnePiece">Products's parameter WeightOnePiece.</param>
+            <returns>Product's CostOnePeace.</returns>
+        </member>
+        <member name="T:Bakery.Model.Products.BaseAbstractProduct">
+            <summary>
+            Base class of baker's product. 
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.Products.BaseAbstractProduct.#ctor">
+            <summary>
+            Empty constructor.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.BaseAbstractProduct.WeightOnePiece">
+            <summary>
+            One piece's weight.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.BaseAbstractProduct.TradeMargin">
+            <summary>
+            Trade margin property.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.BaseAbstractProduct.QuantityProduct">
+            <summary>
+            Quantity product property.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.BaseAbstractProduct.TotalCostProduct">
+            <summary>
+            Product's total cost.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.BaseAbstractProduct.CaloricityOnePiece">
+            <summary>
+            Property product's total caloricity.
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.Products.BaseAbstractProduct.ToString">
+            <summary>
+            Overriden method for get name of class.
+            </summary>
+            <returns>Return class name.</returns>
+        </member>
+        <member name="T:Bakery.Model.Products.Bread">
+            <summary>
+            Class bread's products.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.Bread.Composition">
+            <summary>
+            Bread's composition.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.Bread.Cost">
+            <summary>
+            Product's cost.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.Bread.CaloricityOnePiece">
+            <summary>
+            Property product's total caloricity.
+            </summary>
+        </member>
+        <member name="P:Bakery.Model.Products.Bread.TotalCostProduct">
+            <summary>
+            Product's total cost.
+            </summary>
+        </member>
+        <member name="M:Bakery.Model.Products.Bread.#ctor(System.Int32,System.Decimal)">
+            <summary>
+            Constructor with parametres.
+            </summary>
+            <param name="quantityProduct">Product's quantity.</param>
+            <param name="tradeMargin">Trade margin.</param>
+        </member>
+        <member name="M:Bakery.Model.Products.Bread.#ctor(System.Double,System.Int32,System.Decimal)">
+            <summary>
+            Constructor with parametres.
+            </summary>
+            <param name="weightOnePiece">One piece's weight.</param>
+            <param name="quantityProduct">Product's quantity.</param>
+            <param name="tradeMargin">Trade margin.</param>
+        </member>
+        <member name="M:Bakery.Model.Products.Bread.Equals(System.Object)">
+            <summary>
+            Comparing one rectangle with another.
+            </summary>
+            <param name = "obj" > The compared rectangle.</param>
+            <returns>True if equal.False if not equal.</returns>
+        </member>
+        <member name="M:Bakery.Model.Products.Bread.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+    </members>
+</doc>
