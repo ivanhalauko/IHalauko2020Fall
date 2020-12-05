@@ -20,10 +20,10 @@
 		/// </summary>
 		string Name { get; set; }
 
-		///// <summary>
-		///// Product's price property. Task's point №6.
-		///// </summary>
-		//decimal Price { get; }
+		/// <summary>
+		/// Product's price property. Task's point №6.
+		/// </summary>
+		decimal Price { get; }
 
 		/// <summary>
 		/// Product type property.
@@ -35,10 +35,10 @@
 		/// </summary>
 		int Quantity { get; }
 
-		///// <summary>
-		///// Property to get good's prices. Task's point №6.
-		///// </summary>
-		//decimal TotalPrice { get; }
+		/// <summary>
+		/// Property to get good's prices. Task's point №6.
+		/// </summary>
+		decimal TotalPrice { get; }
 
 		/// <summary>
 		/// Comparison of the properties of products.
