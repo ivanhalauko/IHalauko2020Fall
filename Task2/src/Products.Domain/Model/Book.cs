@@ -47,6 +47,26 @@ namespace Products.Domain.Model
 		}
 
 		/// <summary>
+		/// The method overrides the mathematical "minus" operation for working with Products objects. Task's point №9.
+		/// </summary>
+		/// <param name="product">Product parameter.</param>
+		/// <param name="productsNumber">Number parameter.</param>
+		/// <returns>New product with new quantity result.</returns>
+		public static Book operator -(Book product, int productsNumber)
+		{
+			if (product == null)
+				throw new ArgumentNullException("Product is not null");
+
+			return new Book(
+				name: product.Name,
+				cost: product.Cost,
+				markup: product.Markup,
+				quantity: product.Quantity - productsNumber,
+				productType: product.ProductType
+				);
+		}
+
+		/// <summary>
 		/// Override Equals method for comparing one book with another..
 		/// </summary>
 		/// <param name="obj">Object parameter.</param>
