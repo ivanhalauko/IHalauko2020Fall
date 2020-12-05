@@ -73,6 +73,16 @@ namespace Products.Domain.Model
 		public string ProductType { get; }
 
 		/// <summary>
+		/// Product's price property. Task's point №6.
+		/// </summary>
+		public decimal Price => GetPrice();
+
+		/// <summary>
+		/// Property to get good's prices. Task's point №6.
+		/// </summary>
+		public decimal TotalPrice => GetTotalPrice();
+
+		/// <summary>
 		/// Constructor with name, cost, markup, quantity and productType parameters.
 		/// </summary>
 		/// <param name="name">Name of book.</param>
@@ -117,6 +127,19 @@ namespace Products.Domain.Model
 		/// </summary>
 		/// <returns>Returns class members in string format.</returns>
 		public override string ToString() => string.Format("{0}", GetType().Name);
+
+		/// <summary>
+		/// Method get price.
+		/// </summary>
+		/// <returns>Price value.</returns>
+		private decimal GetPrice() => Math.Round(Cost * (decimal)Markup, 3, MidpointRounding.AwayFromZero);
+
+		/// <summary>
+		/// Method get total price.
+		/// </summary>
+		/// <returns>Total price value.</returns>
+		private decimal GetTotalPrice() => Math.Round(Cost * (decimal)Markup * Quantity, 3, MidpointRounding.AwayFromZero);
+
 
 	}
 }
