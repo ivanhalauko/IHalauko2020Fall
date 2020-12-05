@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\IProduct.cs" />
     <Compile Include="Model\BaseProduct.cs" />
     <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\Phone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -67,6 +67,12 @@ namespace Products.Domain.Model
 		}
 
 		/// <summary>
+		/// Convet Phone type to book. Task's point №10.
+		/// </summary>
+		/// <param name="product">Return book type.</param>
+		public static explicit operator Book(Phone product) => new Book(product.Name, product.Cost, product.Markup, product.Quantity, product.ProductType);
+
+		/// <summary>
 		/// Override Equals method for comparing one book with another..
 		/// </summary>
 		/// <param name="obj">Object parameter.</param>
