@@ -20,7 +20,32 @@ namespace Products.Domain.Model
 		{
 		}
 
-		
+		/// <summary>
+		/// The method overrides the mathematical "plus" operation for working with Products objects by cost, markup and quantity. Task's point №8.
+		/// </summary>
+		/// <param name="firstProduct">First product summand.</param>
+		/// <param name="secondProduct">Second product summand.</param>
+		/// <returns>New product result.</returns>
+		public static Book operator +(Book firstProduct, Book secondProduct)
+		{
+			if (firstProduct == null)
+				throw new ArgumentNullException("Fist Book is null");
+			if (secondProduct == null)
+				throw new ArgumentNullException("Second Book two is null");
+			if (firstProduct.Name != secondProduct.Name)
+				throw new ArgumentException("Fist Book's name is not equal second book's name.");
+			if (firstProduct.ProductType != secondProduct.ProductType)
+				throw new ArgumentException("Fist Book's Type is not equal second book's Type.");
+
+			return new Book(
+				name: firstProduct.Name,
+				cost: Math.Round((firstProduct.Cost * firstProduct.Quantity + secondProduct.Cost * secondProduct.Quantity) / (firstProduct.Quantity + secondProduct.Quantity), 3, MidpointRounding.AwayFromZero),
+				markup: Math.Round((firstProduct.Markup * firstProduct.Quantity + secondProduct.Markup * secondProduct.Quantity) / (firstProduct.Quantity + secondProduct.Quantity), 3, MidpointRounding.AwayFromZero),
+				quantity: firstProduct.Quantity + secondProduct.Quantity,
+				productType: firstProduct.ProductType
+				);
+		}
+
 		/// <summary>
 		/// Override Equals method for comparing one book with another..
 		/// </summary>
@@ -36,8 +61,9 @@ namespace Products.Domain.Model
 			   Cost == book.Cost &&
 			   Markup == book.Markup &&
 			   Quantity == book.Quantity &&
-			   ProductType == book.ProductType;
-			 
+			   ProductType == book.ProductType &&
+			   Price == book.Price &&
+			   TotalPrice == book.TotalPrice;
 		}
 
 		/// <summary>
@@ -50,7 +76,7 @@ namespace Products.Domain.Model
 		/// Override ToString method.
 		/// </summary>
 		/// <returns>Return string</returns>
-		public override string ToString() => string.Format("{0};{1};{2};{3};{4}",
-			base.ToString(), Name, Cost, Markup, Quantity, ProductType);
+		public override string ToString() => string.Format("{0};{1};{2};{3};{4};{5};{6}",
+			base.ToString(), Name, Cost, Markup, Quantity, ProductType, Price, TotalPrice);
 	}
 }

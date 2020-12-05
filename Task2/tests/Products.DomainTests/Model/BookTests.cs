@@ -34,5 +34,24 @@ namespace Products.Domain.Model.Tests
 			//Assert
 			Assert.AreEqual(expectedProductsPrice, actualProductsTotalPrice);
 		}
+
+		[TestCase("ProductOne", 10, 1.5, 2, "Product", "ProductOne", 20, 1.2, 3, "Product", "ProductOne", 16, 1.32, 5, "Product")]
+		[TestCase("ProductTwo", 20, 1.6, 5, "Product", "ProductTwo", 30, 1.3, 4, "Product", "ProductTwo", 24.444, 1.467, 9, "Product")]
+		[TestCase("ProductThree", 30, 1.7, 6, "Product", "ProductThree", 40, 1.4, 5, "Product", "ProductThree", 34.545, 1.564, 11, "Product")]
+		public void GivenOperatorSum_WhenClassesFieldsIsPositive_ThenOutIsPositive(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType,
+			string productTwoName, decimal productTwoCost, double productTwoMarkup, int productTwoQuantity, string productTwoProductType,
+			string expectedName, decimal expectedCost, double expectedMarkup, int expectedQuantity, string expectedProductType
+			)
+		{
+			//Arrange
+			Book productOne = new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType);
+			Book productTwo = new Book(productTwoName, productTwoCost, productTwoMarkup, productTwoQuantity, productTwoProductType);
+			Book expectedProduct = new Book(expectedName, expectedCost, expectedMarkup, expectedQuantity, expectedProductType);
+			//Act
+			var actualProduct = productOne + productTwo;
+			//Assert
+			Assert.AreEqual(expectedProduct, actualProduct);
+		}
 	}
 }
