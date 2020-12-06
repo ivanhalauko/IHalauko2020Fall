@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Products.Domain.UserExceptions;
 
 namespace Products.Domain.Model.Tests
 {
@@ -137,5 +138,47 @@ namespace Products.Domain.Model.Tests
 			//Assert
 			Assert.AreEqual(expectedProductsPrice, actualProductsPrice);
 		}
+
+		[TestCase(null, 10, 1.5, 2, "Product")]
+		[TestCase(null, 20, 1.6, 5, "Product")]
+		[TestCase(null, 30, 1.7, 6, "Product")]
+		public void GivenGetPrice_WhenClassesFieldsNameIsNULL_ThenOutIsWxeption(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType)
+		{
+			//Assert
+			Assert.Throws<ProductExceptions>(() => new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType));
+		}
+
+		[TestCase("ProductOne", -10, 1.5, 2, "Product")]
+		[TestCase("ProductTwo", -20, 1.6, 5, "Product")]
+		[TestCase("ProductThree", -30, 1.7, 6, "Product")]
+		public void GivenGetPrice_WhenClassesFieldsCostIsNotPositive_ThenOutIsWxeption(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType)
+		{
+			//Assert
+			Assert.Throws<ProductExceptions>(() => new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType));
+		}
+
+		[TestCase("ProductOne", 10, -1.5, 2, "Product")]
+		[TestCase("ProductTwo", 20, -1.6, 5, "Product")]
+		[TestCase("ProductThree", 30, -1.7, 6, "Product")]
+		public void GivenGetPrice_WhenClassesFieldsMarkupIsNotPositive_ThenOutIsWxeption(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType)
+		{
+			//Assert
+			Assert.Throws<ProductExceptions>(() => new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType));
+		}
+
+		[TestCase("ProductOne", 10, 1.5, -2, "Product")]
+		[TestCase("ProductTwo", 20, 1.6, -5, "Product")]
+		[TestCase("ProductThree", 30, 1.7, -6, "Product")]
+		public void GivenGetPrice_WhenClassesFieldsQuantityIsNotPositive_ThenOutIsWxeption(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType)
+		{
+			//Assert
+			Assert.Throws<ProductExceptions>(() => new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType));
+		}
+
+
 	}
 }

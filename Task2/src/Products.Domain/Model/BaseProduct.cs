@@ -1,5 +1,6 @@
 ﻿using System;
 using Products.Domain.Interfaces;
+using Products.Domain.UserExceptions;
 
 namespace Products.Domain.Model
 {
@@ -34,7 +35,12 @@ namespace Products.Domain.Model
 		/// </summary>
 		public string Name
 		{
-			set { name = value; }
+			set 
+			{
+				if (value == null)
+					ProductExceptions.SetIncorrectStringValue(value);
+				name = value; 
+			}
 			get { return name; }
 		}
 
@@ -44,7 +50,11 @@ namespace Products.Domain.Model
 		public decimal Cost
 		{
 			set
-			{cost = value;	}
+			{
+				if (value < 0)
+					ProductExceptions.SetIncorrectDecimalValue(value);
+				cost = value;	
+			}
 			get { return cost; }
 		}
 
@@ -54,7 +64,11 @@ namespace Products.Domain.Model
 		public double Markup
 		{
 			private set
-			{markup = value;	}
+			{
+				if (value < 0)
+					ProductExceptions.SetIncorrectDoubleValue(value);
+				markup = value;	
+			}
 			get { return markup; }
 		}
 
@@ -63,7 +77,12 @@ namespace Products.Domain.Model
 		/// </summary>
 		public int Quantity
 		{
-			private set { quantity = value; }
+			private set 
+			{
+				if (value < 0)
+					ProductExceptions.SetIncorrectIntValue(value);
+				quantity = value; 
+			}
 			get { return quantity; }
 		}
 

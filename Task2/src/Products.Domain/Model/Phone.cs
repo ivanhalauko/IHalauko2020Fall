@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Products.Domain.UserExceptions;
+using System;
 
 namespace Products.Domain.Model
 {
@@ -54,6 +55,8 @@ namespace Products.Domain.Model
 		/// <returns>New product with new quantity result.</returns>
 		public static Phone operator -(Phone product, int productsNumber)
 		{
+			if (productsNumber < 0)
+				ProductExceptions.SetIncorrectIntValue(productsNumber);
 			if (product == null)
 				throw new ArgumentNullException("Product is not null");
 
