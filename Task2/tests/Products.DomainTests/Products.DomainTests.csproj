@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Model\BookTests.cs" />
+    <Compile Include="Model\PhoneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
