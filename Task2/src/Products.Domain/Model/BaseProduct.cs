@@ -100,6 +100,29 @@ namespace Products.Domain.Model
 		}
 
 		/// <summary>
+		/// Explicit operator from double cost products to int cost. Task's point №11.
+		/// </summary>
+		/// <param name="phone">Object phone product.</param>
+		public static explicit operator int(BaseProduct product)
+		{
+			double productCostCents = (double)product.Price * 100;
+			int productCostInt = (int)productCostCents;
+			return productCostInt;
+		}
+
+		/// <summary>
+		/// Cost returns to float. Task's point №11.
+		/// </summary>
+		/// <param name="baseProduct">Cost returns to float.</param>
+		public static explicit operator float(BaseProduct baseProduct) => (float)baseProduct.Price;
+
+		/// <summary>
+		/// Returns price in double. Task's point №11.
+		/// </summary>
+		/// <param name="baseProduct">Returns price in double.</param>
+		public static explicit operator double(BaseProduct baseProduct) => (double)baseProduct.Price;
+
+		/// <summary>
 		/// Comparison of the properties of products.
 		/// </summary>
 		/// <param name="obj">Object.</param>

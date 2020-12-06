@@ -93,6 +93,49 @@ namespace Products.Domain.Model.Tests
 			Assert.AreEqual(expectedProduct, actualProduct);
 		}
 
+		[TestCase("ProductOne", 10, 1.5, 2, "Product", 1500)]
+		[TestCase("ProductTwo", 20, 1.6, 5, "Product", 3200)]
+		[TestCase("ProductThree", 30, 1.7, 6, "Product", 5100)]
+		public void GivenOperatorInt_WhenClassesFieldsIsPositive_ThenOutIsCentsPriceProduct(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType,
+			int expectedProductsPrice)
+		{
+			//Arrange
+			Book productOne = new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType);
+			//Act
+			int actualProductsPrice = (int)productOne;
+			//Assert
+			Assert.AreEqual(expectedProductsPrice, actualProductsPrice);
+		}
 
+		[TestCase("ProductOne", 10, 1.5, 2, "Product", 15)]
+		[TestCase("ProductTwo", 20, 1.6, 5, "Product", 32)]
+		[TestCase("ProductThree", 30, 1.7, 6, "Product", 51)]
+		public void GivenOperatorFloat_WhenClassesFieldsIsPositive_ThenOutIsFloatPriceProduct(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType,
+			float expectedProductsPrice)
+		{
+			//Arrange
+			Book productOne = new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType);
+			//Act
+			float actualProductsPrice = (float)productOne;
+			//Assert
+			Assert.AreEqual(expectedProductsPrice, actualProductsPrice);
+		}
+
+		[TestCase("ProductOne", 10, 1.5, 2, "Product", 15)]
+		[TestCase("ProductTwo", 20, 1.6, 5, "Product", 32)]
+		[TestCase("ProductThree", 30, 1.7, 6, "Product", 51)]
+		public void GivenOperatorDouble_WhenClassesFieldsIsPositive_ThenOutIsDoublePriceProduct(
+			string productOneName, decimal productOneCost, double productOneMarkup, int productOneQuantity, string productOneProductType,
+			double expectedProductsPrice)
+		{
+			//Arrange
+			Book productOne = new Book(productOneName, productOneCost, productOneMarkup, productOneQuantity, productOneProductType);
+			//Act
+			double actualProductsPrice = (double)productOne;
+			//Assert
+			Assert.AreEqual(expectedProductsPrice, actualProductsPrice);
+		}
 	}
 }
