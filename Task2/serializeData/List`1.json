@@ -1,0 +1,1 @@
+[{"Name":"firstBook","Cost":20.0,"Markup":1.5,"Quantity":10,"ProductType":"Literature","Price":30.0,"TotalPrice":300.0},{"Name":"secondBook","Cost":10.0,"Markup":1.0,"Quantity":10,"ProductType":"Literature","Price":10.0,"TotalPrice":100.0},{"Name":"thirdBook","Cost":5.0,"Markup":2.0,"Quantity":10,"ProductType":"Literature","Price":10.0,"TotalPrice":100.0}]

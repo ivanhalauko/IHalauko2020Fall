@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Serializers.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Serializers.Services.JSONSerializer">
+            <summary>
+            JSONSerializer class.
+            </summary>
+        </member>
+        <member name="M:Serializers.Services.JSONSerializer.Serialize``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            Object's serialize class. 
+            </summary>
+            <typeparam name="T">Type T parameter.</typeparam>
+            <param name="obj">Object parameter.</param>
+            <param name="foldersName">Folder's name parameter.</param>
+        </member>
+        <member name="M:Serializers.Services.JSONSerializer.Deserialize``1(System.String)">
+            <summary>
+            Object's deserialize class from file. 
+            </summary>
+            <typeparam name="T">Type T parameter.</typeparam>
+            <param name="foldersName">Folder's name parameter.</param>
+            <returns>List with objects.</returns>
+        </member>
+        <member name="T:Serializers.Services.Interfaces.IDeserialize">
+            <summary>
+            IDeserialize interface
+            </summary>
+        </member>
+        <member name="M:Serializers.Services.Interfaces.IDeserialize.Deserialize``1(System.String)">
+            <summary>
+            Deserialize object
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="path">path</param>
+            <returns>Rerrurns object.</returns>
+        </member>
+        <member name="M:Serializers.Services.Interfaces.ISerialize.Serialize``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            Serialize
+            </summary>
+            <typeparam name="T">T</typeparam>
+            <param name="obj">Objct</param>
+            <param name="path">path</param>
+        </member>
+        <member name="T:Serializers.Services.Interfaces.ISerializer">
+            <summary>
+            ISerialize interface.
+            </summary>
+        </member>
+        <member name="T:Serializers.Services.UserException.SerializerException">
+            <summary>
+            Exception class for serializer.
+            </summary>
+        </member>
+        <member name="M:Serializers.Services.UserException.SerializerException.#ctor">
+            <summary>
+            Empty constructor.
+            </summary>
+        </member>
+        <member name="M:Serializers.Services.UserException.SerializerException.#ctor(System.String)">
+            <summary>
+            Constructor to display the product exception message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Serializers.Services.UserException.SerializerException.PathExists(System.String)">
+            <summary>
+            Method calling user exception if path is not exist.
+            </summary>
+            <param name="path">Path param.</param>
+        </member>
+    </members>
+</doc>

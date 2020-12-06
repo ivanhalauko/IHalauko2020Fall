@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Products.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Products.Domain.Interfaces.IProduct">
+            <summary>
+            Interface IProduct.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.Cost">
+            <summary>
+            Property cost from supplier.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.Markup">
+            <summary>
+             Property store's markup.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.Name">
+            <summary>
+            Name property.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.Price">
+            <summary>
+            Product's price property. Task's point №6.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.ProductType">
+            <summary>
+            Product type property.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.Quantity">
+            <summary>
+            Property good's quantity.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Interfaces.IProduct.TotalPrice">
+            <summary>
+            Property to get good's prices. Task's point №6.
+            </summary>
+        </member>
+        <member name="M:Products.Domain.Interfaces.IProduct.Equals(System.Object)">
+            <summary>
+            Comparison of the properties of products.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Returns bool after comparison.</returns>
+        </member>
+        <member name="M:Products.Domain.Interfaces.IProduct.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+        <member name="M:Products.Domain.Interfaces.IProduct.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="T:Products.Domain.Model.BaseProduct">
+            <summary>
+            Base class BaseProduct.
+            </summary>
+        </member>
+        <member name="F:Products.Domain.Model.BaseProduct.cost">
+            <summary>
+            Cost field.
+            </summary>
+        </member>
+        <member name="F:Products.Domain.Model.BaseProduct.markup">
+            <summary>
+            Markup field.
+            </summary>
+        </member>
+        <member name="F:Products.Domain.Model.BaseProduct.quantity">
+            <summary>
+            Quantity field.
+            </summary>
+        </member>
+        <member name="F:Products.Domain.Model.BaseProduct.name">
+            <summary>
+            Name field.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.Name">
+            <summary>
+            Name property.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.Cost">
+            <summary>
+            Property cost from supplier.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.Markup">
+            <summary>
+             Property store's markup.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.Quantity">
+            <summary>
+            Property good's quantity.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.ProductType">
+            <summary>
+            Product type property.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.Price">
+            <summary>
+            Product's price property. Task's point №6.
+            </summary>
+        </member>
+        <member name="P:Products.Domain.Model.BaseProduct.TotalPrice">
+            <summary>
+            Property to get good's prices. Task's point №6.
+            </summary>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.#ctor(System.String,System.Decimal,System.Double,System.Int32,System.String)">
+            <summary>
+            Constructor with name, cost, markup, quantity and productType parameters.
+            </summary>
+            <param name="name">Name of book.</param>
+            <param name="cost">Cost of book from suppliers.</param>
+            <param name="markup">Product's margin.</param>
+            <param name="quantity">Product's quantity.</param>
+            <param name="productType">Product's type.</param>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.op_Explicit(Products.Domain.Model.BaseProduct)~System.Int32">
+            <summary>
+            Explicit operator from double cost products to int cost. Task's point №11.
+            </summary>
+            <param name="phone">Object phone product.</param>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.op_Explicit(Products.Domain.Model.BaseProduct)~System.Single">
+            <summary>
+            Cost returns to float. Task's point №11.
+            </summary>
+            <param name="baseProduct">Cost returns to float.</param>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.op_Explicit(Products.Domain.Model.BaseProduct)~System.Double">
+            <summary>
+            Returns price in double. Task's point №11.
+            </summary>
+            <param name="baseProduct">Returns price in double.</param>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.Equals(System.Object)">
+            <summary>
+            Comparison of the properties of products.
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Returns bool after comparison.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hesh code.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.ToString">
+            <summary>
+            Represents class members in string format.
+            </summary>
+            <returns>Returns class members in string format.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.GetPrice">
+            <summary>
+            Method get price.
+            </summary>
+            <returns>Price value.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.BaseProduct.GetTotalPrice">
+            <summary>
+            Method get total price.
+            </summary>
+            <returns>Total price value.</returns>
+        </member>
+        <member name="T:Products.Domain.Model.Book">
+            <summary>
+            Class book product.
+            </summary>
+        </member>
+        <member name="M:Products.Domain.Model.Book.#ctor(System.String,System.Decimal,System.Double,System.Int32,System.String)">
+            <summary>
+            Constructor with name, cost, markup, quantity and productType parameters.
+            </summary>
+            <param name="name">Name of book.</param>
+            <param name="cost">Cost of book from suppliers.</param>
+            <param name="markup">Product's margin.</param>
+            <param name="quantity">Product's quantity.</param>
+            <param name="productType">Product's type.</param>
+        </member>
+        <member name="M:Products.Domain.Model.Book.op_Addition(Products.Domain.Model.Book,Products.Domain.Model.Book)">
+            <summary>
+            The method overrides the mathematical "plus" operation for working with Products objects by cost, markup and quantity. Task's point №8.
+            </summary>
+            <param name="firstProduct">First product summand.</param>
+            <param name="secondProduct">Second product summand.</param>
+            <returns>New product result.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Book.op_Subtraction(Products.Domain.Model.Book,System.Int32)">
+            <summary>
+            The method overrides the mathematical "minus" operation for working with Products objects. Task's point №9.
+            </summary>
+            <param name="product">Product parameter.</param>
+            <param name="productsNumber">Number parameter.</param>
+            <returns>New product with new quantity result.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Book.op_Explicit(Products.Domain.Model.Phone)~Products.Domain.Model.Book">
+            <summary>
+            Convet Phone type to book. Task's point №10.
+            </summary>
+            <param name="product">Return book type.</param>
+        </member>
+        <member name="M:Products.Domain.Model.Book.Equals(System.Object)">
+            <summary>
+            Override Equals method for comparing one book with another..
+            </summary>
+            <param name="obj">Object parameter.</param>
+            <returns>Return bool value.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Book.GetHashCode">
+            <summary>
+            Override GetHashCode method.
+            </summary>
+            <returns>Return hash code.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Book.ToString">
+            <summary>
+            Override ToString method.
+            </summary>
+            <returns>Return string</returns>
+        </member>
+        <member name="T:Products.Domain.Model.Phone">
+            <summary>
+            Phone product class.
+            </summary>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.#ctor(System.String,System.Decimal,System.Double,System.Int32,System.String)">
+            <summary>
+            Constructor with name, cost, markup, quantity and productType parameters.
+            </summary>
+            <param name="name">Name of book.</param>
+            <param name="cost">Cost of book from suppliers.</param>
+            <param name="markup">Product's margin.</param>
+            <param name="quantity">Product's quantity.</param>
+            <param name="productType">Product's type.</param>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.op_Addition(Products.Domain.Model.Phone,Products.Domain.Model.Phone)">
+            <summary>
+            The method overrides the mathematical "plus" operation for working with Products objects by cost, markup and quantity. Task's point №8.
+            </summary>
+            <param name="firstProduct">First product summand.</param>
+            <param name="secondProduct">Second product summand.</param>
+            <returns>New product result.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.op_Subtraction(Products.Domain.Model.Phone,System.Int32)">
+            <summary>
+            The method overrides the mathematical "minus" operation for working with Products objects. Task's point №9.
+            </summary>
+            <param name="product">Product parameter.</param>
+            <param name="productsNumber">Number parameter.</param>
+            <returns>New product with new quantity result.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.op_Explicit(Products.Domain.Model.Book)~Products.Domain.Model.Phone">
+            <summary>
+            Convet Phone type to book. Task's point №10.
+            </summary>
+            <param name="product">Return book type.</param>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.Equals(System.Object)">
+            <summary>
+            Override Equals method for comparing one book with another..
+            </summary>
+            <param name="obj">Object parameter.</param>
+            <returns>Return bool value.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.GetHashCode">
+            <summary>
+            Override GetHashCode method.
+            </summary>
+            <returns>Return hash code.</returns>
+        </member>
+        <member name="M:Products.Domain.Model.Phone.ToString">
+            <summary>
+            Override ToString method.
+            </summary>
+            <returns>Return string</returns>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.#ctor">
+            <summary>
+            Empty constructor.
+            </summary>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.#ctor(System.String)">
+            <summary>
+            Constructor to display the product exception message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.SetIncorrectDecimalValue(System.Decimal)">
+            <summary>
+            Method calling user exception if value is negative.
+            </summary>
+            <param name="value">Value param.</param>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.SetIncorrectDoubleValue(System.Double)">
+            <summary>
+            Method calling user exception if value is negative.
+            </summary>
+            <param name="value">Value param.</param>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.SetIncorrectIntValue(System.Int32)">
+            <summary>
+            Method calling user exception if value is negative.
+            </summary>
+            <param name="value">Value param.</param>
+        </member>
+        <member name="M:Products.Domain.UserExceptions.ProductExceptions.SetIncorrectStringValue(System.String)">
+            <summary>
+            Method calling user exception if value is negative.
+            </summary>
+            <param name="value">Value param.</param>
+        </member>
+    </members>
+</doc>
