@@ -1,4 +1,6 @@
-﻿using Shapes.Model.Lib;
+﻿
+using BoxWithFiguresLibrary;
+using Shapes.Model.Lib;
 using System;
 using System.Collections.Generic;
 using System.IO;
