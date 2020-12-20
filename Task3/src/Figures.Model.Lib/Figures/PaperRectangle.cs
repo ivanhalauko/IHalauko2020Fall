@@ -37,6 +37,9 @@ namespace Figures.Model.Lib.Figures
 		/// <param name="cuttingShape">Shape which Cut out.</param>
 		public PaperRectangle(BaseShape currentShape, PaperRectangle cuttingShape) : base(currentShape, cuttingShape)
 		{
+			var coloredCurShape = (IPaper)currentShape;
+			var paperPrevShapeColor = coloredCurShape.Color;
+			_color = cuttingShape.Color;
 		}
 
 		/// <summary>

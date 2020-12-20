@@ -7,7 +7,7 @@ using System.IO;
 
 namespace XMLStreamReaderWriter
 {
-	class XMLStreamReaderWriter
+	public class XMLStreamReaderWriter
 	{
 		/// <summary>
 		/// Static method for serialization GirlsBoxWithFigures class instance to XML-file using StreamWriter class
@@ -21,7 +21,7 @@ namespace XMLStreamReaderWriter
 				stream.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
 				stream.WriteLine($"<{box.GetType().Name}>");
 
-				foreach (BaseShape figure in box.Figures)
+				foreach (BaseShape figure in box.BoxFigures)
 				{
 					stream.WriteLine($"\t<{figure.GetType().Name}>");
 

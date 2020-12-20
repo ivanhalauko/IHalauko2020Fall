@@ -1,30 +1,33 @@
 ﻿using System;
+using System.Linq;
 using Shapes.Model.Lib;
 using System.Collections.Generic;
+using Figures.Model.Lib.Interfaces;
 
 namespace BoxWithFiguresLibrary
 {
-    public class BoxWithFigures
+	/// <summary>
+	/// Box with figures class. 
+	/// </summary>
+	public class BoxWithFigures
     {
+		/// <summary>
+		/// Box size.
+		/// </summary>
+		public const int BoxSizeIsTwenty = 20;
+
 		/// <summary>
 		/// List of abstract figures
 		/// </summary>
-		public List<BaseShape> Figures { get; private set; }
+		public BaseShape[] BoxFigures { get; private set; }
 
 		/// <summary>
 		/// Constructor with parameter
 		/// </summary>
 		/// <param name="figures"></param>
-		public BoxWithFigures(List<BaseShape> figures)
+		public BoxWithFigures()
 		{
-			Figures = figures;
-		}
-
-		/// <summary>
-		/// Constructor without parameters
-		/// </summary>
-		public BoxWithFigures() : this(new List<BaseShape>())
-		{
+			BoxFigures = new BaseShape[BoxSizeIsTwenty];
 		}
 
 		/// <summary>
@@ -33,13 +36,27 @@ namespace BoxWithFiguresLibrary
 		/// <param name="figure"></param>
 		public void AddFigure(BaseShape figure)
 		{
-			if (Figures.Contains(figure))
+			if (figure ==null)
+				throw new ArgumentNullException("Shape is null");
+
+			if (BoxFigures.Contains(figure))
 				throw new Exception("Figure of this type are already in the box");
 
-			if (Figures.Count == 20)
+			if (BoxFigures.Count()== BoxSizeIsTwenty)
 				throw new Exception("There is no free space in the box");
 
-			Figures.Add(figure);
+			var boxShapeIsFull = true;
+			for (int i = 0; i < BoxFigures.Length; i++)
+			{
+				if (BoxFigures[i] == null)
+				{
+					BoxFigures[i] = figure;
+					boxShapeIsFull = false;
+					break;
+				}
+			}
+			if (boxShapeIsFull)
+				throw new Exception($"The box can't contain more then '{BoxSizeIsTwenty}' shapes.");
 		}
 
 		/// <summary>
@@ -49,8 +66,8 @@ namespace BoxWithFiguresLibrary
 		/// <returns></returns>
 		public BaseShape ViewByNumber(int number)
 		{
-			if (Figures[number] != null && number >= 0 && number < Figures.Count)
-				return Figures[number];
+			if (BoxFigures[number] != null && number >= 0 && number < BoxFigures.Count())
+				return BoxFigures[number];
 			else
 				throw new Exception("Figure with such number does not exist");
 		}
@@ -63,9 +80,7 @@ namespace BoxWithFiguresLibrary
 		public BaseShape ExtractByNumber(int number)
 		{
 			BaseShape figure = ViewByNumber(number);
-
-			Figures.RemoveAt(number);
-
+			BoxFigures[number]=null;
 			return figure;
 		}
 
@@ -78,12 +93,11 @@ namespace BoxWithFiguresLibrary
 		{
 			if (figure == null)
 				throw new Exception("The figure does not exist");
-
-			if (Figures[number] != null && number >= 0 && number < Figures.Count)
-			{
-				Figures.RemoveAt(number);
-				Figures.Insert(number, figure);
-			}
+			if (number<0)
+				throw new Exception("Id can't be less then zero");
+			
+			if (BoxFigures[number] != null && number >= 0 && number < BoxFigures.Count())
+				BoxFigures[number] =figure;
 			else
 				throw new Exception("Figure with such number does not exist");
 		}
@@ -95,14 +109,11 @@ namespace BoxWithFiguresLibrary
 		/// <returns></returns>
 		public BaseShape FindEquivalentFigure(BaseShape figure)
 		{
-			foreach (BaseShape item in Figures)
+			foreach (BaseShape item in BoxFigures)
 			{
 				if (item.Equals(figure))
-				{
 					return item;
-				}
 			}
-
 			return null;
 		}
 
@@ -112,7 +123,7 @@ namespace BoxWithFiguresLibrary
 		/// <returns></returns>
 		public int FiguresCount()
 		{
-			return Figures.Count;
+			return BoxFigures.Count();
 		}
 
 		/// <summary>
@@ -122,11 +133,10 @@ namespace BoxWithFiguresLibrary
 		public double SumAllFiguresPerimeters()
 		{
 			double sum = 0;
-			foreach (BaseShape item in Figures)
+			foreach (BaseShape item in BoxFigures)
 			{
 				sum += item.Perimeter;
 			}
-
 			return sum;
 		}
 
@@ -137,11 +147,10 @@ namespace BoxWithFiguresLibrary
 		public double SumAllFiguresAreas()
 		{
 			double sum = 0;
-			foreach (BaseShape item in Figures)
+			foreach (BaseShape item in BoxFigures)
 			{
 				sum += item.Area;
 			}
-
 			return sum;
 		}
 
@@ -149,15 +158,37 @@ namespace BoxWithFiguresLibrary
 		/// Method for getting all circles from box to list
 		/// </summary>
 		/// <returns></returns>
-		public List<BaseCircleShape> GetAllCircles()
+		public IEnumerable<BaseCircleShape> GetAllCircles()
 		{
 			List<BaseCircleShape> abstractCircles = new List<BaseCircleShape>();
-			foreach (BaseCircleShape item in Figures)
+			foreach (BaseCircleShape item in BoxFigures)
 			{
-				abstractCircles.Add(item);
+				if (item is BaseCircleShape)
+				{
+					abstractCircles.Add(item);
+				}				
 			}
-
 			return abstractCircles;
 		}
+
+		/// <summary>
+		/// Method for getting all film figures from box to list
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<BaseShape> GetAllFilmFigures()
+		{
+			List<BaseShape> abstractFilm = new List<BaseShape>();
+			foreach (var item in BoxFigures)
+			{
+				if (item is IFilm)
+				{
+					abstractFilm.Add(item);
+				}
+			}
+			return abstractFilm;
+		}
+
+		
+
 	}
 }

@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Interface IFilm
 	/// </summary>
-	interface IFilm
+	public interface IFilm
 	{
 	}
 }
