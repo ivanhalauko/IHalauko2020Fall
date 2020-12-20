@@ -8,6 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{05E5E65B-4031-431C-AB08-A0934E54A636}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{59B24AA2-4621-4395-9DCC-CEE39BDE04D7}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Products.Domain.xml = docs\Products.Domain.xml
+		docs\Serializers.Services.xml = docs\Serializers.Services.xml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Domain", "src\Products.Domain\Products.Domain.csproj", "{CD92465E-4631-471A-A4A9-CC8B733807F7}"
 EndProject
