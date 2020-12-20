@@ -1,4 +1,5 @@
-﻿using Figures.Model.Lib.Interfaces;
+﻿using Figures.Model.Lib.Enums;
+using Figures.Model.Lib.Interfaces;
 using Shapes.Model.Lib;
 using System;
 
@@ -7,12 +8,12 @@ namespace Figures.Model.Lib.Figures
 	/// <summary>
 	/// Paper rectangle figeres class.
 	/// </summary>
-	public class PaperRectangle : BaseCircleShape, IPaper, IColor
+	public class PaperRectangle : BaseRectangleShape, IPaper
 	{
 		/// <summary>
 		/// Field of ColorEnum type, figure's color.
 		/// </summary>
-		private IColor _color;
+		private ColorEnum _color;
 
 		/// <summary>
 		/// Property shows painted figure or not.  
@@ -24,7 +25,7 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		/// <param name="radius">Radius parameter.</param>
 		/// <param name="colorEnum">Color parameter.</param>
-		public PaperRectangle(double radius, IColor colorEnum) : base(radius)
+		public PaperRectangle(double length, double width, ColorEnum colorEnum) : base(length,width)
 		{
 			_color = colorEnum;
 		}
@@ -41,7 +42,7 @@ namespace Figures.Model.Lib.Figures
 		/// <summary>
 		/// Color of paper circle
 		/// </summary>
-		public IColor Color
+		public ColorEnum Color
 		{
 			get
 			{
