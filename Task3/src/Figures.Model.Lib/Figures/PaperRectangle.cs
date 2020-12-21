@@ -21,26 +21,27 @@ namespace Figures.Model.Lib.Figures
 		public bool IsFigurePainted { get; private set; }
 
 		/// <summary>
-		/// Constructor with two parameters.
+		/// Constructor with three parameters.
 		/// </summary>
-		/// <param name="radius">Radius parameter.</param>
-		/// <param name="colorEnum">Color parameter.</param>
+		/// <param name="length">Figures length.</param>
+		/// <param name="width">Figure's width.</param>
+		/// <param name="colorEnum">Figure's color.</param>
 		public PaperRectangle(double length, double width, ColorEnum colorEnum) : base(length,width)
 		{
 			_color = colorEnum;
 		}
 
-		/// <summary>
-		/// Copy constructor to cut shape from another.
-		/// </summary>
-		/// <param name="currentShape">Shape's blank.</param>
-		/// <param name="cuttingShape">Shape which Cut out.</param>
-		public PaperRectangle(BaseShape currentShape, PaperRectangle cuttingShape) : base(currentShape, cuttingShape)
-		{
-			var coloredCurShape = (IPaper)currentShape;
-			var paperPrevShapeColor = coloredCurShape.Color;
-			_color = cuttingShape.Color;
-		}
+		///// <summary>
+		///// Copy constructor to cut shape from another.
+		///// </summary>
+		///// <param name="currentShape">Shape's blank.</param>
+		///// <param name="cuttingShape">Shape which Cut out.</param>
+		//public PaperRectangle(BaseShape currentShape, PaperRectangle cuttingShape) //: base(currentShape, cuttingShape)
+		//{
+		//	var coloredCurShape = (IPaper)currentShape;
+		//	var paperPrevShapeColor = coloredCurShape.Color;
+		//	_color = cuttingShape.Color;
+		//}
 
 		/// <summary>
 		/// Color of paper circle
@@ -55,7 +56,7 @@ namespace Figures.Model.Lib.Figures
 			{
 				if (IsFigurePainted)
 				{
-					throw new UserException("The figure already painted");
+					throw new ShapesUserException("The figure already painted");
 				}
 				else
 				{

@@ -8,9 +8,25 @@ namespace Shapes.Model.Lib
 	public class BaseCircleShape : BaseShape
 	{
 		/// <summary>
+		/// Shape's radius.
+		/// </summary>
+		private double radius;
+		
+		/// <summary>
 		/// Property radius.
 		/// </summary>
-		public double Radius { get; }
+		public double Radius
+		{
+			set
+			{
+				if (value == 0)
+					ShapesUserException.SetIncorrectDoubleValueZero(value);
+				if (value < 0)
+					ShapesUserException.SetIncorrectDoubleValue(value);
+				radius = value;
+			}
+			get { return radius; }
+		}
 
 		/// <summary>
 		/// Constructor initialized circle object with radius parameter.
@@ -28,7 +44,7 @@ namespace Shapes.Model.Lib
 		/// <param name="cuttingShape">Cut out shape.</param>
 		public BaseCircleShape(BaseShape currentShape, BaseCircleShape cuttingShape) : base(currentShape, cuttingShape)
 		{
-			UserException.AreaCutting(currentShape, cuttingShape);
+			ShapesUserException.AreaCutting(currentShape, cuttingShape);
 		}
 
 		/// <summary>
@@ -50,7 +66,6 @@ namespace Shapes.Model.Lib
 		/// <summary>
 		/// Method calculate shape's area.
 		/// </summary>
-		/// <param name="radius">Shape's radius.</param>
 		/// <returns>Return shape's area.</returns>
 		private double CalculateArea()
 		{
@@ -60,7 +75,6 @@ namespace Shapes.Model.Lib
 		/// <summary>
 		/// Method calculate perimetr.
 		/// </summary>
-		/// <param name="radius">Shape's radius.</param>
 		/// <returns>Return shape's perimetr.</returns>
 		private double CalculatePerimeter()
 		{

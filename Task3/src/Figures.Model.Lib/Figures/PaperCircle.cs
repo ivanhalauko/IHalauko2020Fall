@@ -52,7 +52,7 @@ namespace Figures.Model.Lib.Figures
 			{
 				if (IsFigurePainted)
 				{
-					throw new UserException("The figure already painted");
+					throw new ShapesUserException("The figure already painted");
 				}
 				else
 				{
