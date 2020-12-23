@@ -45,6 +45,7 @@ namespace Shapes.Model.Lib
 		public BaseCircleShape(BaseShape currentShape, BaseCircleShape cuttingShape) : base(currentShape, cuttingShape)
 		{
 			ShapesUserException.AreaCutting(currentShape, cuttingShape);
+			Radius = cuttingShape.Radius;
 		}
 
 		/// <summary>

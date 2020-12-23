@@ -29,7 +29,7 @@ namespace Shapes.Model.Lib.Tests
 		/// <summary>
 		/// Test case to testing property perimeter.
 		/// </summary>
-		/// <param name="radius">Circle radius.</param>
+		/// <param name="radius">Circle's radius.</param>
 		/// <param name="expectedPerimeter">Expected perimeter.</param>
 		[TestCase(10.0, 62.829999999999998d)]
 		[TestCase(100.1, 628.95000000000005)]
@@ -47,8 +47,8 @@ namespace Shapes.Model.Lib.Tests
 		/// <summary>
 		/// Test case to testing equals.
 		/// </summary>
-		/// <param name="shapesFirstRadius">Shapes first radius.</param>
-		/// <param name="shapesSecondRadius">Shapes second radius.</param>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
+		/// <param name="shapesSecondRadius">Shape's second radius.</param>
 		/// <param name="expectedResult">Expected result after equals method.</param>
 		[TestCase(3,3, true)]
 		[TestCase(1, 1, true)]
@@ -67,8 +67,8 @@ namespace Shapes.Model.Lib.Tests
 		/// <summary>
 		/// Test case to testing equals.
 		/// </summary>
-		/// <param name="shapesFirstRadius">Shapes first radius.</param>
-		/// <param name="shapesSecondRadius">Shapes second radius.</param>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
+		/// <param name="shapesSecondRadius">Shape's second radius.</param>
 		/// <param name="expectedResult">Expected result after equals method.</param>
 		[TestCase(0.5, 1, false)]
 		[TestCase(1, 2, false)]
@@ -87,26 +87,70 @@ namespace Shapes.Model.Lib.Tests
 		/// <summary>
 		/// Test case to testing exception.
 		/// </summary>
-		/// <param name="shapesFirstRadius">Shapes first radius.</param>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
 		[TestCase(-0.5)]
 		[TestCase(-1)]
 		[TestCase(-2)]
-		public void GivenGetEqualsCircle_WhenRadiusIsPositive_ThenOutIsException(double shapesFirstRadius)
+		public void GivenGetEqualsCircle_WhenRadiusIsNegative_ThenOutIsException(double shapesFirstRadius)
 		{
+			//Act
+			var ex = Assert.Throws<ShapesUserException>(() => new BaseCircleShape(shapesFirstRadius));
 			//Assert
-			Assert.Throws<ShapesUserException>(() => new BaseCircleShape(shapesFirstRadius));
+			Assert.That(ex.Message,Is.EqualTo("The value can not be negative"));
 		}
 
 		/// <summary>
 		/// Test case to testing exception.
 		/// </summary>
-		/// <param name="shapesFirstRadius">Shapes first radius.</param>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
 		[TestCase(0)]
 		public void GivenGetEqualsCircle_WhenRadiusIsZero_ThenOutIsException(double shapesFirstRadius)
 		{
+			//Act
+			var ex = Assert.Throws<ShapesUserException>(() => new BaseCircleShape(shapesFirstRadius));
 			//Assert
-			Assert.Throws<ShapesUserException>(() => new BaseCircleShape(shapesFirstRadius));
+			Assert.That(ex.Message, Is.EqualTo("The value can not be zero"));
 		}
 
+		/// <summary>
+		/// Test case to testing cutting.
+		/// </summary>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
+		/// <param name="shapesSecondRadius">Shape's second radius.</param>
+		/// <param name="expectedResult">Expected result after equals method.</param>
+		[TestCase(0.5, 1, "The area cutting shape 3,14 can not be larger than the current shape0,79")]
+		[TestCase(1, 2, "The area cutting shape 12,57 can not be larger than the current shape3,14")]
+		[TestCase(2, 3, "The area cutting shape 28,27 can not be larger than the current shape12,57")]
+		public void GivenGetToCutCircleFromShape_WhenRadiusIsPositive_ThenOutIsException(double shapesFirstRadius, double shapesSecondRadius, string expectedResult)
+		{
+			//Arrange
+			BaseCircleShape currentShape = new BaseCircleShape(shapesFirstRadius);
+			BaseCircleShape cuttingShape = new BaseCircleShape(shapesSecondRadius);
+			//Act
+			var ex = Assert.Throws<ShapesUserException>(() => new BaseCircleShape(currentShape, cuttingShape));
+			//Assert
+			Assert.That(ex.Message, Is.EqualTo(expectedResult));
+		}
+
+		/// <summary>
+		/// Test case to testing cutting.
+		/// </summary>
+		/// <param name="shapesFirstRadius">Shape's first radius.</param>
+		/// <param name="shapesSecondRadius">Shape's second radius.</param>
+		/// <param name="expectedResult">Expected result after equals method.</param>
+		[TestCase(1, 0.5, 0.5)]
+		[TestCase(2, 1, 1)]
+		[TestCase(3, 2, 2)]
+		public void GivenGetToCutCircleFromShape_WhenRadiusIsPositive_ThenOutIsNotException(double shapesFirstRadius, double shapesSecondRadius, double expectedResult)
+		{
+			//Arrange
+			BaseCircleShape currentShape = new BaseCircleShape(shapesFirstRadius);
+			BaseCircleShape cuttingShape = new BaseCircleShape(shapesSecondRadius);
+			//Act
+			BaseCircleShape actualShape = new BaseCircleShape(currentShape, cuttingShape);
+			var actualResult = actualShape.Radius;
+			//Assert
+			Assert.AreEqual(expectedResult, actualResult);
+		}
 	}
 }

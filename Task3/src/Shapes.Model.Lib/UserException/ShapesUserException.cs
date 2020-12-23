@@ -45,7 +45,7 @@ namespace Shapes.Model.Lib
 		public static void SetIncorrectDoubleValueZero(double value)
 		{
 			if (value == 0)
-				throw new ShapesUserException($"The value can not be null");
+				throw new ShapesUserException($"The value can not be zero");
 		}
 	}
 }

@@ -85,6 +85,8 @@ namespace Shapes.Model.Lib
 		public BaseRectangleShape(BaseRectangleShape currentShape, BaseRectangleShape cuttingShape) : base(currentShape, cuttingShape)
 		{
 			ShapesUserException.AreaCutting(currentShape, cuttingShape);
+			Length = cuttingShape.Length;
+			Width = cuttingShape.Width;
 		}
 
 		/// <summary>
