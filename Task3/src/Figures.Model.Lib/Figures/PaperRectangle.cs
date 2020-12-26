@@ -16,10 +16,10 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		private ColorEnum _color;
 
-		/// <summary>
-		/// Field figure's colored.
-		/// </summary>
-		private bool _isFigurePainted;
+		///// <summary>
+		///// Field figure's colored.
+		///// </summary>
+		//private bool _isFigurePainted;
 
 		/// <summary>
 		/// Property shows painted figure or not.  
@@ -34,8 +34,11 @@ namespace Figures.Model.Lib.Figures
 		/// <param name="colorEnum">Figure's color.</param>
 		public PaperRectangle(double length, double width, ColorEnum colorEnum) : base(length,width)
 		{
-			_color = colorEnum;
-			IsFigurePainted = true;
+			if (colorEnum != ColorEnum.IsNotColoured)
+			{
+				_color = colorEnum;
+				IsFigurePainted = true;
+			}
 		}
 
 		/// <summary>
@@ -56,17 +59,16 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		public ColorEnum Color
 		{
-			get
-			{
-				return _color;
-			}
+			get => _color;
+
 			set
 			{
 				if (IsFigurePainted)
-					FiguresUserException.ColorPaintingHandler(this.IsFigurePainted,this.Color);			
-				else
+					FiguresUserException.PaintingFigureHandler(this.IsFigurePainted,this.Color);			
+				if (IsFigurePainted==false)
 				{
 					_color = value;
+					FiguresUserException.PaintingClearFigureHandler(this.IsFigurePainted, this.Color);
 					IsFigurePainted = true;
 				}
 			}

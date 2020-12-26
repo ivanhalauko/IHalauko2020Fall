@@ -38,10 +38,10 @@ namespace Figures.Model.Lib.FigUserException
 		/// </summary>
 		/// <param name="isFigurePainted">Shape's blank.</param>
 		/// <param name="secondFiguresColor">Cut out shape.</param>
-		internal static void ColorPaintingHandler(bool isFigurePainted, ColorEnum secondFiguresColor)
+		internal static void PaintingFigureHandler(bool isFigurePainted, ColorEnum secondFiguresColor)
 		{
 			bool IsFigureSecondPainted = false;
-			if (secondFiguresColor != null)
+			if (secondFiguresColor != ColorEnum.IsNotColoured)
 			{
 				IsFigureSecondPainted = true;
 			}
@@ -49,5 +49,17 @@ namespace Figures.Model.Lib.FigUserException
 				throw new FiguresUserException($"The figure colored  {secondFiguresColor.ToString()} you can not change color.");
 		}
 
+		/// <summary>
+		/// Constructor to paint figure to another color.
+		/// </summary>
+		/// <param name="isFigurePainted">Shape's blank.</param>
+		/// <param name="secondFiguresColor">Cut out shape.</param>
+		internal static void PaintingClearFigureHandler(bool isFigurePainted, ColorEnum secondFiguresColor)
+		{
+			if ((isFigurePainted==false)&&(secondFiguresColor != ColorEnum.IsNotColoured))
+			{
+				throw new FiguresUserException($"The figure painted to {secondFiguresColor.ToString()} sucсesessfully.");		
+			}		
+		}
 	}
 }

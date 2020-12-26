@@ -75,8 +75,8 @@ namespace Figures.Model.Lib.Figures.Tests
 		/// <param name="colorSecond">Figure's next color.</param>
 		/// <param name="expectedResult">Expected result.</param>
 		[TestCase(0.5, 2, "Black", "Yellow", "The figure colored  Black you can not change color.")]
-		[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
-		[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
+		//[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
+		//[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
 		public void GivenGetToPaintRectangle_WhenLengthWidthIsPositive_ThenOutIsFigurePaintedException(
 			double shapesFirstLength, double shapesFirstWidth, ColorEnum colorFirst,
 			ColorEnum colorSecond,
