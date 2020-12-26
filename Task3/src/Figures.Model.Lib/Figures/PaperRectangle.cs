@@ -2,6 +2,7 @@
 using Figures.Model.Lib.Interfaces;
 using Shapes.Model.Lib;
 using System;
+using Figures.Model.Lib.FigUserException;
 
 namespace Figures.Model.Lib.Figures
 {
@@ -16,9 +17,14 @@ namespace Figures.Model.Lib.Figures
 		private ColorEnum _color;
 
 		/// <summary>
+		/// Field figure's colored.
+		/// </summary>
+		private bool _isFigurePainted;
+
+		/// <summary>
 		/// Property shows painted figure or not.  
 		/// </summary>
-		public bool IsFigurePainted { get; private set; }
+		public bool IsFigurePainted { get; private set; } = false;
 
 		/// <summary>
 		/// Constructor with three parameters.
@@ -29,19 +35,21 @@ namespace Figures.Model.Lib.Figures
 		public PaperRectangle(double length, double width, ColorEnum colorEnum) : base(length,width)
 		{
 			_color = colorEnum;
+			IsFigurePainted = true;
 		}
 
-		///// <summary>
-		///// Copy constructor to cut shape from another.
-		///// </summary>
-		///// <param name="currentShape">Shape's blank.</param>
-		///// <param name="cuttingShape">Shape which Cut out.</param>
-		//public PaperRectangle(BaseShape currentShape, PaperRectangle cuttingShape) //: base(currentShape, cuttingShape)
-		//{
-		//	var coloredCurShape = (IPaper)currentShape;
-		//	var paperPrevShapeColor = coloredCurShape.Color;
-		//	_color = cuttingShape.Color;
-		//}
+		/// <summary>
+		/// Copy constructor to cut shape from another.
+		/// </summary>
+		/// <param name="currentShape">Shape's blank.</param>
+		/// <param name="cuttingShape">Shape which Cut out.</param>
+		public PaperRectangle(BaseRectangleShape currentShape, PaperRectangle cuttingShape) : base(currentShape, cuttingShape)
+		{
+			var coloredCurShape = (IPaper)currentShape;
+			var paperPrevShapeColor = coloredCurShape.Color;
+			FiguresUserException.ColorEqualsHandler(paperPrevShapeColor, cuttingShape.Color);
+			_color = cuttingShape.Color;
+		}
 
 		/// <summary>
 		/// Color of paper circle
@@ -55,9 +63,7 @@ namespace Figures.Model.Lib.Figures
 			set
 			{
 				if (IsFigurePainted)
-				{
-					throw new ShapesUserException("The figure already painted");
-				}
+					FiguresUserException.ColorPaintingHandler(this.IsFigurePainted,this.Color);			
 				else
 				{
 					_color = value;

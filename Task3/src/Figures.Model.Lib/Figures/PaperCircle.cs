@@ -51,9 +51,7 @@ namespace Figures.Model.Lib.Figures
 			set
 			{
 				if (IsFigurePainted)
-				{
 					throw new ShapesUserException("The figure already painted");
-				}
 				else
 				{
 					_color = value;

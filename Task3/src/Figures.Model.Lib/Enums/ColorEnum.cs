@@ -5,6 +5,8 @@
 	/// </summary>
 	public enum ColorEnum
 	{
+		/// 16 Is not coloured.
+		IsNotColoured,
 		///  0   The color black
 		Black,
 		///  1   The color dark blue
@@ -35,7 +37,9 @@
 		Magenta,
 		/// 14 	The color yellow
 		Yellow,
-		/// 15 	The color white     (DEFAULT COLOR)
+		/// 15 	The color white     ()
 		White
+		
+
 	}
 }
