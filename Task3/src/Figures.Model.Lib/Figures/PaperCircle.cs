@@ -1,7 +1,8 @@
-﻿using Figures.Model.Lib.Enums;
-using Figures.Model.Lib.Interfaces;
+﻿using System;
 using Shapes.Model.Lib;
-using System;
+using Figures.Model.Lib.Enums;
+using Figures.Model.Lib.Interfaces;
+using Figures.Model.Lib.FigUserException;
 
 namespace Figures.Model.Lib.Figures
 {
@@ -18,7 +19,7 @@ namespace Figures.Model.Lib.Figures
 		/// <summary>
 		/// Property shows painted figure or not.  
 		/// </summary>
-		public bool IsFigurePainted { get; private set; }
+		public bool IsFigurePainted { get; private set; } = false;
 
 		/// <summary>
 		/// Constructor with two parameters.
@@ -27,7 +28,11 @@ namespace Figures.Model.Lib.Figures
 		/// <param name="colorEnum">Color parameter.</param>
 		public PaperCircle(double radius, ColorEnum colorEnum) : base(radius)
 		{
-			_color = colorEnum;
+			if (colorEnum != ColorEnum.IsNotColoured)
+			{
+				_color = colorEnum;
+				IsFigurePainted = true;
+			}
 		}
 
 		/// <summary>
@@ -37,6 +42,10 @@ namespace Figures.Model.Lib.Figures
 		/// <param name="cuttingShape">Shape which Cut out.</param>
 		public PaperCircle(BaseShape currentShape, PaperCircle cuttingShape) : base(currentShape, cuttingShape)
 		{
+			var coloredCurShape = (IPaper)currentShape;
+			var paperPrevShapeColor = coloredCurShape.Color;
+			FiguresUserException.ColorEqualsHandler(paperPrevShapeColor, cuttingShape.Color);
+			_color = cuttingShape.Color;
 		}
 
 		/// <summary>
@@ -44,24 +53,23 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		public ColorEnum Color
 		{
-			get
-			{
-				return _color;
-			}
+			get => _color;
+			
 			set
 			{
 				if (IsFigurePainted)
-					throw new ShapesUserException("The figure already painted");
-				else
+					FiguresUserException.PaintingFigureHandler(this.IsFigurePainted, this.Color);
+				if (IsFigurePainted == false)
 				{
 					_color = value;
+					FiguresUserException.PaintingClearFigureHandler(this.IsFigurePainted, this.Color);
 					IsFigurePainted = true;
 				}
 			}
 		}
 
 		/// <summary>
-		/// Comparing one circle wit another.
+		/// Comparing one circle with another.
 		/// </summary>
 		/// <param name="obj">The compared circle.</param>
 		/// <returns>True if equal. False if not eqal.</returns>

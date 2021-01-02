@@ -1,7 +1,7 @@
-﻿using Figures.Model.Lib.Enums;
-using Figures.Model.Lib.Interfaces;
+﻿using System;
 using Shapes.Model.Lib;
-using System;
+using Figures.Model.Lib.Enums;
+using Figures.Model.Lib.Interfaces;
 using Figures.Model.Lib.FigUserException;
 
 namespace Figures.Model.Lib.Figures
@@ -46,7 +46,7 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		/// <param name="currentShape">Shape's blank.</param>
 		/// <param name="cuttingShape">Shape which Cut out.</param>
-		public PaperRectangle(BaseRectangleShape currentShape, PaperRectangle cuttingShape) : base(currentShape, cuttingShape)
+		public PaperRectangle(BaseShape currentShape, PaperRectangle cuttingShape) : base(currentShape, cuttingShape)
 		{
 			var coloredCurShape = (IPaper)currentShape;
 			var paperPrevShapeColor = coloredCurShape.Color;
@@ -83,7 +83,7 @@ namespace Figures.Model.Lib.Figures
 		{
 			if (obj == null || GetType() != obj.GetType())
 				return false;
-			PaperCircle r = (PaperCircle)obj;
+			PaperRectangle r = (PaperRectangle)obj;
 			return Color.Equals(r.Color) && base.Equals((BaseRectangleShape)obj);
 		}
 

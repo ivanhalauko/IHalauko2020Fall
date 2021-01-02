@@ -78,11 +78,11 @@ namespace Shapes.Model.Lib
 
 
 		/// <summary>
-		/// Constructor to cut shape from another.
+		/// Constructor to cut shape from another (Copy's constructor).
 		/// </summary>
 		/// <param name="currentShape">Shape's blank.</param>
 		/// <param name="cuttingShape">Cut out shape.</param>
-		public BaseRectangleShape(BaseRectangleShape currentShape, BaseRectangleShape cuttingShape) : base(currentShape, cuttingShape)
+		public BaseRectangleShape(BaseShape currentShape, BaseRectangleShape cuttingShape) : base(currentShape, cuttingShape)
 		{
 			ShapesUserException.AreaCutting(currentShape, cuttingShape);
 			Length = cuttingShape.Length;

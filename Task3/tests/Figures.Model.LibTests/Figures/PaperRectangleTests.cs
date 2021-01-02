@@ -1,12 +1,7 @@
 ﻿using NUnit.Framework;
-using Figures.Model.Lib.Figures;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using Shapes.Model.Lib;
 using Figures.Model.Lib.Enums;
 using Figures.Model.Lib.FigUserException;
-using Shapes.Model.Lib;
 
 namespace Figures.Model.Lib.Figures.Tests
 {
@@ -75,8 +70,8 @@ namespace Figures.Model.Lib.Figures.Tests
 		/// <param name="colorSecond">Figure's next color.</param>
 		/// <param name="expectedResult">Expected result.</param>
 		[TestCase(0.5, 2, "Black", "Yellow", "The figure colored  Black you can not change color.")]
-		//[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
-		//[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
+		[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
+		[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
 		public void GivenGetToPaintRectangle_WhenLengthWidthIsPositive_ThenOutIsFigurePaintedException(
 			double shapesFirstLength, double shapesFirstWidth, ColorEnum colorFirst,
 			ColorEnum colorSecond,
@@ -99,8 +94,8 @@ namespace Figures.Model.Lib.Figures.Tests
 		/// <param name="colorSecond">Figure's next color.</param>
 		/// <param name="expectedResult">Expected result.</param>
 		[TestCase(0.5, 2, null, "Yellow", "The figure painted to Yellow sucсesessfully.")]
-		//[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
-		//[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
+		[TestCase(0.5, 8, "Green", "Yellow", "The figure colored  Green you can not change color.")]
+		[TestCase(1, 11, "Blue", "Black", "The figure colored  Blue you can not change color.")]
 		public void GivenGetToPaintRectangle_WhenLengthWidthIsPositive_ThenOutIsFigurePainted(
 			double shapesFirstLength, double shapesFirstWidth, ColorEnum colorFirst,
 			ColorEnum colorSecond,
@@ -113,6 +108,5 @@ namespace Figures.Model.Lib.Figures.Tests
 			//Assert
 			Assert.That(ex.Message, Is.EqualTo(expectedResult));
 		}
-
 	}
 }
