@@ -46,6 +46,7 @@
     <Compile Include="Model\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ClientMessageRepository.cs" />
+    <Compile Include="Repositories\NetworkStreamIO.cs" />
     <Compile Include="Repositories\ServerMessageRepository.cs" />
     <Compile Include="ServerAndClientEventArgs\NewMessageEventArgs.cs" />
     <Compile Include="ServerAndClientEventArgs\NewMessageToClientEventArgs.cs" />
