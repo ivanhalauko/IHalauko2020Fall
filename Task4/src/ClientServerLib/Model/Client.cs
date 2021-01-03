@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Text;
 using System.Diagnostics;
 using System.Net.Sockets;
 using ClientServerLib.ServerAndClientEventArgs;
 using ClientServerLib.Repositories;
+using System.Net;
 
 namespace ClientServerLib.Model
 {
@@ -25,7 +25,7 @@ namespace ClientServerLib.Model
         /// <summary>
         /// Host ip address.
         /// </summary>
-        public string IpAddress { get; private set; }
+        public IPAddress IpAddress { get; }
 
         /// <summary>
         /// Host port.
@@ -53,7 +53,7 @@ namespace ClientServerLib.Model
         /// <param name="name">Client name.</param>
         /// <param name="ipAddress">Host ip address.</param>
         /// <param name="port">Host port.</param>
-        public Client(string name, string ipAddress, int port)
+        public Client(string name, IPAddress ipAddress, int port)
         {
             Name = name;
             Port = port;

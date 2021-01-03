@@ -12,16 +12,19 @@ namespace ClientServerLib.Repositories
         /// <summary>
         /// List of client messages
         /// </summary>
-        public List<string> Messages { get; }
+        public List<string> Messages { get; set; }
+
+        public ServerMessageRepository()
+        {
+            Messages = new List<string>();
+        }
 
         /// <summary>
         /// Constructor <see cref="ServerMessageRepository"/>
         /// </summary>
         /// <param name="client"></param>
-        public ServerMessageRepository(Client client)
+        public ServerMessageRepository(Client client) : this()
         {
-            Messages = new List<string>();
-
             client.NewMessage += (sender, e) =>
             {
                 Console.WriteLine(MakeTransliterationFromRusIntoEnglish(e.Message));
@@ -67,6 +70,28 @@ namespace ClientServerLib.Repositories
                     resultMessage += messageLetter;
             }
             return resultMessage;
+        }
+
+        /// <summary>
+        /// Comparing one message with another.
+        /// </summary>
+        /// <param name="obj">The compared rectangle.</param>
+        /// <returns>True if equal. False if not equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+            ServerMessageRepository r = (ServerMessageRepository)obj;
+            return Messages.SequenceEqual(r.Messages);
+        }
+
+        /// <summary>
+        /// Calculate hash code.
+        /// </summary>
+        /// <returns>The total hesh code.</returns>
+        public override int GetHashCode()
+        {
+            return Messages.GetHashCode();
         }
     }
 }

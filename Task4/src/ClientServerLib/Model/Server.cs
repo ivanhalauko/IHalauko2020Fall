@@ -14,6 +14,16 @@ namespace ClientServerLib.Model
     public class Server
     {
         /// <summary>
+        /// Property mMessage.
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Property IPAddress.
+        /// </summary>
+        public IPAddress IPAddress { get; }
+
+        /// <summary>
         /// Field TcpListener's class.
         /// </summary>
         static TcpListener tcpListener;
@@ -34,12 +44,27 @@ namespace ClientServerLib.Model
         public List<ClientMessageRepository> MessagesFromClients { get; private set; }
 
         /// <summary>
+        /// A list to store each client’s messages.
+        /// </summary>
+        public List<ServerMessageRepository> ServerMessageRepositories { get; private set; }
+
+        /// <summary>
         /// Constructor <see cref="Server"/>
         /// </summary>
         /// <param name="port">Server port.</param>
         public Server(int port)
         {
             Port = port;
+        }
+
+        /// <summary>
+        /// Constructor <see cref="Server"/>
+        /// </summary>
+        /// <param name="port">Server port.</param>
+        public Server(string name, IPAddress ipAddress, int port) : this(port)
+        {
+            tcpListener = new TcpListener(IPAddress, Port);
+            ServerMessageRepositories = new List<ServerMessageRepository>();
         }
 
         /// <summary>

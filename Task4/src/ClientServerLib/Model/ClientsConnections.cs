@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Net.Sockets;
 using System.Diagnostics;
 using ClientServerLib.ServerAndClientEventArgs;
@@ -58,7 +57,6 @@ namespace ClientServerLib.Model
             try
             {
                 NetworkStream = TcpClient.GetStream();
-                byte[] data = new byte[64];
                 while (true)
                 {
                     try
@@ -70,7 +68,8 @@ namespace ClientServerLib.Model
                     catch (Exception)
                     {
                         Debug.WriteLine("Client with id: " + ClientId + " disconected.");
-                        throw new Exception("Client with id: " + ClientId + " is not conected.");             
+                        //throw new Exception("Client with id: " + ClientId + " is not conected."); 
+                        break;
                     }
                 }
             }
