@@ -4,6 +4,7 @@ using System.Threading;
 using System.Net.Sockets;
 using System.Diagnostics;
 using System.Collections.Generic;
+using ClientServerLib.Repositories;
 
 namespace ClientServerLib.Model
 {
@@ -26,6 +27,11 @@ namespace ClientServerLib.Model
         /// List of client connections on the server.
         /// </summary>
         public List<ClientsConnections> ServersClients { get; private set; }
+
+        /// <summary>
+        /// A list to store each client’s messages.
+        /// </summary>
+        public List<ClientMessageRepository> MessagesFromClients { get; private set; }
 
         /// <summary>
         /// Constructor <see cref="Server"/>
@@ -56,7 +62,8 @@ namespace ClientServerLib.Model
                     Thread listenThread = new Thread(new ThreadStart(serverClient.OpenStream));
                     listenThread.Start();
 
-                    
+                    MessagesFromClients.Add(new ClientMessageRepository(serverClient));
+                    clientId++;
                 }
             }
             catch (Exception e)
