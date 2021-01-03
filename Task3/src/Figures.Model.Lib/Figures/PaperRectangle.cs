@@ -1,7 +1,8 @@
-﻿using Figures.Model.Lib.Enums;
-using Figures.Model.Lib.Interfaces;
+﻿using System;
 using Shapes.Model.Lib;
-using System;
+using Figures.Model.Lib.Enums;
+using Figures.Model.Lib.Interfaces;
+using Figures.Model.Lib.FigUserException;
 
 namespace Figures.Model.Lib.Figures
 {
@@ -15,19 +16,29 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		private ColorEnum _color;
 
+		///// <summary>
+		///// Field figure's colored.
+		///// </summary>
+		//private bool _isFigurePainted;
+
 		/// <summary>
 		/// Property shows painted figure or not.  
 		/// </summary>
-		public bool IsFigurePainted { get; private set; }
+		public bool IsFigurePainted { get; private set; } = false;
 
 		/// <summary>
-		/// Constructor with two parameters.
+		/// Constructor with three parameters.
 		/// </summary>
-		/// <param name="radius">Radius parameter.</param>
-		/// <param name="colorEnum">Color parameter.</param>
+		/// <param name="length">Figures length.</param>
+		/// <param name="width">Figure's width.</param>
+		/// <param name="colorEnum">Figure's color.</param>
 		public PaperRectangle(double length, double width, ColorEnum colorEnum) : base(length,width)
 		{
-			_color = colorEnum;
+			if (colorEnum != ColorEnum.IsNotColoured)
+			{
+				_color = colorEnum;
+				IsFigurePainted = true;
+			}
 		}
 
 		/// <summary>
@@ -39,6 +50,7 @@ namespace Figures.Model.Lib.Figures
 		{
 			var coloredCurShape = (IPaper)currentShape;
 			var paperPrevShapeColor = coloredCurShape.Color;
+			FiguresUserException.ColorEqualsHandler(paperPrevShapeColor, cuttingShape.Color);
 			_color = cuttingShape.Color;
 		}
 
@@ -47,19 +59,16 @@ namespace Figures.Model.Lib.Figures
 		/// </summary>
 		public ColorEnum Color
 		{
-			get
-			{
-				return _color;
-			}
+			get => _color;
+
 			set
 			{
 				if (IsFigurePainted)
-				{
-					throw new UserException("The figure already painted");
-				}
-				else
+					FiguresUserException.PaintingFigureHandler(this.IsFigurePainted,this.Color);			
+				if (IsFigurePainted==false)
 				{
 					_color = value;
+					FiguresUserException.PaintingClearFigureHandler(this.IsFigurePainted, this.Color);
 					IsFigurePainted = true;
 				}
 			}
@@ -74,7 +83,7 @@ namespace Figures.Model.Lib.Figures
 		{
 			if (obj == null || GetType() != obj.GetType())
 				return false;
-			PaperCircle r = (PaperCircle)obj;
+			PaperRectangle r = (PaperRectangle)obj;
 			return Color.Equals(r.Color) && base.Equals((BaseRectangleShape)obj);
 		}
 

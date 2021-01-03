@@ -5,6 +5,9 @@ using System;
 
 namespace XMLStreamReaderWriter
 {
+	/// <summary>
+	/// String reader class.
+	/// </summary>
 	public class StringReader
 	{
 		/// <summary>
