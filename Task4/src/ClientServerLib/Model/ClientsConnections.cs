@@ -21,9 +21,14 @@ namespace ClientServerLib.Model
         public int ClientId { get; private set; }
 
         /// <summary>
-        /// Through this object, you can send messages to the server or, conversely, receive data from the server.
+        /// Server to which client is connected.
         /// </summary>
-        public NetworkStream NetworkStream { get; private set; }
+		public Server Server { get; private set; }
+
+		/// <summary>
+		/// Through this object, you can send messages to the server or, conversely, receive data from the server.
+		/// </summary>
+		public NetworkStream NetworkStream { get; private set; }
 
         /// <summary>
         /// Constructor.
@@ -31,10 +36,11 @@ namespace ClientServerLib.Model
         /// <param name="tcpClient">Tcp client for to connect to the server.</param>
         /// <param name="server">The server to which the client is connected.</param>
         /// <param name="clientId">Client id which the server issues.</param>
-        public ClientsConnections(TcpClient tcpClient, int clientId)
+        public ClientsConnections(TcpClient tcpClient,Server server, int clientId)
         {
             TcpClient = tcpClient;
             ClientId = clientId;
+            Server = server;
         }
 
         /// <summary>
@@ -57,8 +63,7 @@ namespace ClientServerLib.Model
                     catch (Exception)
                     {
                         Debug.WriteLine("Client with id: " + ClientId + " disconected.");
-                        throw new Exception("Client with id: " + ClientId + " is not conected.");
-                       
+                        throw new Exception("Client with id: " + ClientId + " is not conected.");             
                     }
                 }
             }

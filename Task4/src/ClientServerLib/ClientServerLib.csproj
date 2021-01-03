@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientsConnections.cs" />
+    <Compile Include="Model\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
