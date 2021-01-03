@@ -2,6 +2,7 @@
 using System.Text;
 using System.Diagnostics;
 using System.Net.Sockets;
+using ClientServerLib.ServerAndClientEventArgs;
 
 namespace ClientServerLib.Model
 {
@@ -10,6 +11,11 @@ namespace ClientServerLib.Model
     /// </summary>
     public class Client
     {
+        /// <summary>
+        /// Event to track new messages.
+        /// </summary>
+        public event EventHandler<NewMessageToClientEventArgs> NewMessage;
+
         /// <summary>
         /// Client name.
         /// </summary>
@@ -92,6 +98,25 @@ namespace ClientServerLib.Model
                 if (TcpClient != null)
                     TcpClient.Close();
             }
+        }
+
+        /// <summary>
+        /// Used to synchronously call the methods supported by the delegate object.
+        /// </summary>
+        /// <param name="newMessageToClientEventArgs"> Type to receive a message when an event occurs. </param>
+        protected void OnNewMessage(NewMessageToClientEventArgs newMessageToClientEventArgs)
+        {
+            NewMessage?.Invoke(this, newMessageToClientEventArgs);
+        }
+
+        /// <summary>
+        /// Method for notifying receipt of a new message.
+        /// </summary>
+        /// <param name="message">New message.</param>
+        public void GetNewMessage(string message)
+        {
+            NewMessageToClientEventArgs e = new NewMessageToClientEventArgs(message);
+            OnNewMessage(e);
         }
     }
 }
