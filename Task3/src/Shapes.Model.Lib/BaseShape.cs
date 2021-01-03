@@ -27,10 +27,11 @@ namespace Shapes.Model.Lib
 		/// <summary>
 		/// Copy constructor.
 		/// </summary>
-		/// <param name="baseShape">Copy param.</param>
+		/// <param name="currentShape">Current shape.</param>
+		/// <param name="cuttingShape">Cutting shape</param>
 		public BaseShape(BaseShape currentShape, BaseShape cuttingShape)
 		{
-			UserException.AreaCutting(currentShape, cuttingShape);
+			ShapesUserException.AreaCutting(currentShape, cuttingShape);
 		}
 
 		/// <summary>

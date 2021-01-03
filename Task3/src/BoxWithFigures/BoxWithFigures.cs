@@ -24,7 +24,6 @@ namespace BoxWithFiguresLibrary
 		/// <summary>
 		/// Constructor with parameter
 		/// </summary>
-		/// <param name="figures"></param>
 		public BoxWithFigures()
 		{
 			BoxFigures = new BaseShape[BoxSizeIsTwenty];

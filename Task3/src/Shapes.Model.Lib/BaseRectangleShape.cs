@@ -8,14 +8,46 @@ namespace Shapes.Model.Lib
 	public class BaseRectangleShape : BaseShape
 	{
 		/// <summary>
+		/// Shape's length.
+		/// </summary>
+		private double length;
+
+		/// <summary>
+		/// Shape's width.
+		/// </summary>
+		private double width;
+
+		/// <summary>
 		/// Property lenght rectangle.
 		/// </summary>
-		public double Length { get; }
+		public double Length
+		{
+			set
+			{
+				if (value == 0)
+					ShapesUserException.SetIncorrectDoubleValueZero(value);
+				if (value < 0)
+					ShapesUserException.SetIncorrectDoubleValue(value);
+				length = value;
+			}
+			get { return length; }
+		}
 
 		/// <summary>
 		/// Property width rectangle.
 		/// </summary>
-		public double Width { get; }
+		public double Width 
+		{
+			set
+			{
+				if (value == 0)
+					ShapesUserException.SetIncorrectDoubleValueZero(value);
+				if (value < 0)
+					ShapesUserException.SetIncorrectDoubleValue(value);
+				width = value;
+			}
+			get { return width; }
+		}
 
 		/// <summary>
 		/// Property rectangle's area.
@@ -46,20 +78,20 @@ namespace Shapes.Model.Lib
 
 
 		/// <summary>
-		/// Constructor to cut shape from another.
+		/// Constructor to cut shape from another (Copy's constructor).
 		/// </summary>
 		/// <param name="currentShape">Shape's blank.</param>
 		/// <param name="cuttingShape">Cut out shape.</param>
-		public BaseRectangleShape(BaseRectangleShape currentShape, BaseRectangleShape cuttingShape) : base(currentShape, cuttingShape)
+		public BaseRectangleShape(BaseShape currentShape, BaseRectangleShape cuttingShape) : base(currentShape, cuttingShape)
 		{
-			UserException.AreaCutting(currentShape, cuttingShape);
+			ShapesUserException.AreaCutting(currentShape, cuttingShape);
+			Length = cuttingShape.Length;
+			Width = cuttingShape.Width;
 		}
 
 		/// <summary>
 		/// Method calculate shape's area.
 		/// </summary>
-		/// <param name="length">Shape's lenght.</param>
-		/// <param name="width">Shape's width.</param>
 		/// <returns>Return shape's perimetr.</returns>
 		private double CalculateArea()
 		{
@@ -69,8 +101,6 @@ namespace Shapes.Model.Lib
 		/// <summary>
 		/// Method calculate shape's perimeter.
 		/// </summary>
-		/// <param name="length">Shape's lenght.</param>
-		/// <param name="width">Shape's width.</param>
 		/// <returns>Return shape's perimetr.</returns>
 		private double CalculatePerimeter()
 		{

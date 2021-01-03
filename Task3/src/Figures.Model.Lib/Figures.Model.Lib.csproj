@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ColorEnum.cs" />
+    <Compile Include="FiguresUserException\FiguresUserException.cs" />
     <Compile Include="Figures\FilmCircle.cs" />
     <Compile Include="Figures\FilmRectangle.cs" />
     <Compile Include="Figures\PaperCircle.cs" />

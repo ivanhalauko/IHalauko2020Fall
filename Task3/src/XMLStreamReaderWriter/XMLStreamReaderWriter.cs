@@ -1,12 +1,14 @@
 ﻿
 using BoxWithFiguresLibrary;
 using Shapes.Model.Lib;
-using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace XMLStreamReaderWriter
 {
+	/// <summary>
+	/// XML Stream reader and writer class.
+	/// </summary>
 	public class XMLStreamReaderWriter
 	{
 		/// <summary>
