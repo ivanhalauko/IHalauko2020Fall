@@ -61,7 +61,7 @@ namespace ClientServerLib.Model
 
             try
             {
-                TcpClient = new TcpClient(IpAddress, Port);
+                TcpClient = new TcpClient(IpAddress.ToString(), Port);
             }
             catch (Exception)
             {

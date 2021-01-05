@@ -1,5 +1,6 @@
 ﻿using ClientServerLib.Model;
 using NUnit.Framework;
+using System.Net;
 using System.Threading;
 
 namespace ClientServerLib.Repositories.Tests
@@ -24,7 +25,8 @@ namespace ClientServerLib.Repositories.Tests
             Thread serverThread = new Thread(new ThreadStart(tcpServer.Start));
             serverThread.Start();
 
-            Client tcpClient = new Client(actualName, actualIp, actualPort);
+            IPAddress ipAddress = IPAddress.Parse(actualIp);
+            Client tcpClient = new Client(actualName, ipAddress, actualPort);
             ServerMessageRepository messagesFromServer = new ServerMessageRepository(tcpClient);
 
             tcpClient.OpenStream();

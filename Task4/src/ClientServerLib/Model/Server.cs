@@ -14,6 +14,11 @@ namespace ClientServerLib.Model
     public class Server
     {
         /// <summary>
+        /// Property name.
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
         /// Property mMessage.
         /// </summary>
         public string Message { get; set; }
@@ -60,9 +65,14 @@ namespace ClientServerLib.Model
         /// <summary>
         /// Constructor <see cref="Server"/>
         /// </summary>
+        /// <param name="name">Name parameter.</param>
+        /// <param name="ipAddress">IpAddress parameter.</param>
         /// <param name="port">Server port.</param>
         public Server(string name, IPAddress ipAddress, int port) : this(port)
         {
+            Name = name;
+            Port = port;
+            IPAddress = ipAddress;
             tcpListener = new TcpListener(IPAddress, Port);
             ServerMessageRepositories = new List<ServerMessageRepository>();
         }

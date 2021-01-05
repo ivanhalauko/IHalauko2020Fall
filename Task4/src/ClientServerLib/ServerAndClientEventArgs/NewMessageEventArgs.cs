@@ -2,6 +2,9 @@
 
 namespace ClientServerLib.ServerAndClientEventArgs
 {
+    /// <summary>
+    /// Define a base class to hold custom event info.
+    /// </summary>
 	public class NewMessageEventArgs : EventArgs
 	{
         /// <summary>

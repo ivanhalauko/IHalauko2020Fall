@@ -1,9 +1,12 @@
 ﻿namespace ClientServerLib.ServerAndClientEventArgs
 {
+    /// <summary>
+    /// Define a class to hold custom event info.
+    /// </summary>
     public class NewMessageToServerEventArgs : NewMessageEventArgs
     {
         /// <summary>
-        /// Clietn id.
+        /// Client id.
         /// </summary>
         public int Id { get; }
 
