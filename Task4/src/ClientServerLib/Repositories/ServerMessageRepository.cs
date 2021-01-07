@@ -1,6 +1,7 @@
 ﻿using System;
 using ClientServerLib.Model;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ClientServerLib.Repositories
 {
@@ -14,6 +15,9 @@ namespace ClientServerLib.Repositories
         /// </summary>
         public List<string> Messages { get; set; }
 
+        /// <summary>
+        /// Constructor without parameters.
+        /// </summary>
         public ServerMessageRepository()
         {
             Messages = new List<string>();
@@ -75,7 +79,7 @@ namespace ClientServerLib.Repositories
         /// <summary>
         /// Comparing one message with another.
         /// </summary>
-        /// <param name="obj">The compared rectangle.</param>
+        /// <param name="obj">The compared message.</param>
         /// <returns>True if equal. False if not equal.</returns>
         public override bool Equals(object obj)
         {
