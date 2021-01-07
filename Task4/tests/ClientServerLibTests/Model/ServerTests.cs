@@ -19,14 +19,15 @@ namespace ClientServerLib.Model.Tests
         /// <param name="actualIp">Ip-adress.</param>
         /// <param name="actualPort">Port connection.</param>
         [TestCase("Ivan", "127.0.0.1", 8895)]
-        public void GivenServerWhenInitInstancTheOutIsTwoClients(string actualNameOne, string actualIp, int actualPort)
+        public void GivenServer_WhenInitInstance_ThenOutIsOneClients(string actualNameOne, string actualIp, int actualPort)
         {
             //Arrange
             Server tcpServer = new Server(actualPort);
             Thread serverThread = new Thread(new ThreadStart(tcpServer.Start));
             serverThread.Start();
 
-            Client tcpClientOne = new Client(actualNameOne, actualIp, actualPort);
+            IPAddress ipAddress = IPAddress.Parse(actualIp);
+            Client tcpClientOne = new Client(actualNameOne, ipAddress, actualPort);
             Thread clientThreadOne = new Thread(new ThreadStart(tcpClientOne.OpenStream));
             clientThreadOne.Start();
             tcpClientOne.OpenStream();
@@ -55,6 +56,7 @@ namespace ClientServerLib.Model.Tests
         {
             //Arrange
             IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
+           
             List<string> expectedClientOneMessage = new List<string>() { $"Id: '{clientOneId}'; Client name: '{clientOneName}'; Message: '{clientOneMessage}'." };
             List<string> expectedClientTwoMessage = new List<string>() { $"Id: '{clientTwoId}'; Client name: '{clientTwoName}'; Message: '{clientTwoMessage}'." };
 
