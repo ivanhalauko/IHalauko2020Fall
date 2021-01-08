@@ -1,13 +1,10 @@
 ﻿using AVLTreeLib.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AVLTreeLib.Interfaces
 {
-	public interface IAVLTreeLib<T> where T : IComparable
+	public interface IAVLTree<T> where T : IComparable
 	{
 		/// <summary>
 		/// Property of head.

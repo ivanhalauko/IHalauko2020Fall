@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5EE08414-0573-4BBB-91D7-91AEC798E571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8EBD3B59-E3FD-4521-A772-1F9EE2B12945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTreeLib", "src\AVLTreeLib\AVLTreeLib.csproj", "{14662828-A7D2-4F3C-BEDF-6759CFA936B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTreeLibTests", "tests\AVLTreeLibTests\AVLTreeLibTests.csproj", "{34AC885E-36B3-4B00-975A-0A6387A5E609}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14662828-A7D2-4F3C-BEDF-6759CFA936B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14662828-A7D2-4F3C-BEDF-6759CFA936B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14662828-A7D2-4F3C-BEDF-6759CFA936B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14662828-A7D2-4F3C-BEDF-6759CFA936B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34AC885E-36B3-4B00-975A-0A6387A5E609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34AC885E-36B3-4B00-975A-0A6387A5E609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34AC885E-36B3-4B00-975A-0A6387A5E609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34AC885E-36B3-4B00-975A-0A6387A5E609}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14662828-A7D2-4F3C-BEDF-6759CFA936B2} = {5EE08414-0573-4BBB-91D7-91AEC798E571}
+		{34AC885E-36B3-4B00-975A-0A6387A5E609} = {8EBD3B59-E3FD-4521-A772-1F9EE2B12945}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B327A85F-3ADF-4B5A-BD11-41658FC405FF}
