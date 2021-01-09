@@ -25,6 +25,13 @@ namespace AVLTreeLib.Model
         AVLTreeNode<T> _right;
 
         /// <summary>
+        /// Node's value.
+        /// </summary>
+        public T Value { get; set; }
+
+        
+
+        /// <summary>
         /// Constructor without parameter.
         /// </summary>
         public AVLTreeNode()
@@ -105,33 +112,14 @@ namespace AVLTreeLib.Model
         }
 
         /// <summary>
-        /// Node's value.
-        /// </summary>
-        public T Value { get;set;}
-
-        /// <summary>
-        /// Method is implementing IComparable interface.
-        /// </summary>
-        /// <param name="other">Node for comparison.</param>
-        /// <returns>Return 1 if other less then current.</returns>
-        public int CompareTo(T other) => Value.CompareTo(other);
-
-
-        /// <summary>
         /// Property height left tree.
         /// </summary>
-        private int LeftHeight
-        {
-            get => MaxChildHeight(Left);
-        }
+        private int LeftHeight {get => MaxChildHeight(Left);}
 
         /// <summary>
         /// Property of height right tree.
         /// </summary>
-        private int RightHeight
-        {
-            get=> MaxChildHeight(Right);
-        }
+        private int RightHeight { get=> MaxChildHeight(Right);}
 
         /// <summary>
         /// State of tree.
@@ -155,13 +143,14 @@ namespace AVLTreeLib.Model
         /// <summary>
         /// Balance factor.
         /// </summary>
-        private int BalanceFactor
-        {
-            get
-            {
-                return RightHeight - LeftHeight;
-            }
-        }
+        private int BalanceFactor { get => RightHeight - LeftHeight;}
+
+        /// <summary>
+        /// Method is implementing IComparable interface.
+        /// </summary>
+        /// <param name="other">Node for comparison.</param>
+        /// <returns>Return 1 if other less then current.</returns>
+        public int CompareTo(T other) => Value.CompareTo(other);
 
         /// <summary>
         /// Method finds height.
@@ -187,7 +176,6 @@ namespace AVLTreeLib.Model
 
             Right = newRoot.Left;
             newRoot.Left = this;
-
         }
 
         /// <summary>
