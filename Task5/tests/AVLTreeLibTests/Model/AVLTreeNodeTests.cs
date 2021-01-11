@@ -264,5 +264,105 @@ namespace AVLTreeLib.Model.Tests
 			Assert.AreEqual(expectedValue, actualResult);
 		}
 
+		/// <summary>
+		/// Testing <see cref="Node{T}.Insert(Node{T})"/> where T is Int32.
+		/// </summary>
+		/// <param name="actualData">The data that is stored in the node.</param>
+		/// <param name="actualLeft">Left node.</param>
+		/// <param name="actualRight">Right node.</param>
+		/// <param name="expectedData">The data that is stored in the node.</param>
+		/// <param name="expectedLeft">Left node.</param>
+		/// <param name="expectedRight">Right node.</param>
+		[TestCase(5, 3, 1, 5, 3, 1)]
+		//[TestCase(8, 3, 1, 8, 3, 1)]
+		public void GivenIsertWhenTIsIntThenOutIsIntNode(int actualData, int actualLeft, int actualRight,
+			int expectedData, int expectedLeft, int expectedRight)
+		{
+			//Arrange
+			AVLTreeNode<int> actualNode = new AVLTreeNode<int>(actualData, new AVLTreeNode<int>(actualLeft), new AVLTreeNode<int>(actualRight));
+			AVLTreeNode<int> expectedNode = new AVLTreeNode<int>(expectedData);
+			//Act
+			expectedNode.Insert(new AVLTreeNode<int>(expectedLeft));
+			expectedNode.Insert(new AVLTreeNode<int>(expectedRight));
+			//Assert
+			Assert.AreEqual(expectedNode, actualNode);
+		}
+
+		/// <summary>
+		/// Given Add When TSing Then Out Is String Node
+		/// </summary>
+		/// <param name="actualData">The data that is stored in the node.</param>
+		/// <param name="actualLeft">Left node.</param>
+		/// <param name="actualRight">Right node.</param>
+		/// <param name="expectedData">The data that is stored in the node.</param>
+		/// <param name="expectedLeft">Left node.</param>
+		/// <param name="expectedRight">Right node.</param>
+		[TestCase("c", "b", "a", "c", "b", "a")]
+		[TestCase("c", "b", "a", "c", "b", "a")]
+		public void GivenAddWhenTSingThenOutIsStringNode(string actualData, string actualLeft, string actualRight,
+	string expectedData, string expectedLeft, string expectedRight)
+		{
+			//Arrange
+			AVLTreeNode<string> actualNode = new AVLTreeNode<string>(actualData, new AVLTreeNode<string>(actualLeft), new AVLTreeNode<string>(actualRight));
+			AVLTreeNode<string> expectedNode = new AVLTreeNode<string>(expectedData);
+			//Act
+			expectedNode.Insert(new AVLTreeNode<string>(expectedLeft));
+			expectedNode.Insert(new AVLTreeNode<string>(expectedRight));
+			//Assert
+			Assert.AreEqual(expectedNode, actualNode);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+		///// <summary>
+		///// Test Given MaxChildHeight node's value when values are positive int then out is Child Nodes Height Int.
+		///// </summary>
+		///// <param name="nodesRoot">First value parameter.</param>
+		///// <param name="leftValue">Left value parameter.</param>
+		///// <param name="rightValue">Right value parameter.</param>
+		///// <param name="expectedValue">Expected value parameter.</param>
+		//[TestCase(2, 1, 3, 5, 5)]
+		////[TestCase(1, 2, 4, 3)]
+		//public void GivenReplaceNodes_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
+		//	int nodesParentValue, int leftValue, int rightValue,int replacedNodeValue, int expectedValue)
+		//{
+		//	//Arrange
+
+		//	AVLTreeNode<int> parentNode = new AVLTreeNode<int>(nodesParentValue);
+		//	parentNode.Left = new AVLTreeNode<int>(leftValue);
+		//	parentNode.Right = new AVLTreeNode<int>(rightValue);
+
+		//	parentNode._tree = new AVLTree<int>();
+
+		//	AVLTreeNode<int> newRoot = new AVLTreeNode<int>(replacedNodeValue);
+
+
+		//	AVLTreeNode<int> testNode = new AVLTreeNode<int>();
+
+		//	PropertyInfo propertyInfo = typeof(AVLTreeNode<int>).GetProperty("_tree",
+		//	BindingFlags.NonPublic | BindingFlags.Public);
+		//	propertyInfo.SetValue(obj,new )
+
+
+		//	MethodInfo methodInfo = typeof(AVLTreeNode<int>).GetMethod("ReplaceRoot",
+		//	BindingFlags.NonPublic | BindingFlags.Instance);
+
+		//	//Act
+		//	var actualResult = methodInfo.Invoke(testNode, new object[] { newRoot });
+		//	//Assert
+		//	Assert.AreEqual(expectedValue, actualResult);
+		//}
+
+
+
 	}
 }

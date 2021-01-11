@@ -29,7 +29,73 @@ namespace AVLTreeLib.Model
         /// </summary>
         public T Value { get; set; }
 
-        
+        /// <summary>
+        /// Node's parent reference.
+        /// </summary>
+        public AVLTreeNode<T> Parent { get; set; }
+
+        /// <summary>
+        /// Reference on the left descendent.
+        /// </summary>
+        public AVLTreeNode<T> Left
+        {
+            get => _left;
+
+            set
+            {
+                _left = value;
+                if (_left != null)
+                {
+                    _left.Parent = this;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reference on the right descendent.
+        /// </summary>
+        public AVLTreeNode<T> Right
+        {
+            get => _right;
+
+            set
+            {
+                _right = value;
+                if (_right != null)
+                {
+                    _right.Parent = this;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Property height left tree.
+        /// </summary>
+        private int LeftHeight { get => MaxChildHeight(Left); }
+
+        /// <summary>
+        /// Property of height right tree.
+        /// </summary>
+        private int RightHeight { get => MaxChildHeight(Right); }
+
+        /// <summary>
+        /// State of tree.
+        /// </summary>
+        private TreeStateEnum State
+        {
+            get
+            {
+                if (LeftHeight - RightHeight > 1)
+                {
+                    return TreeStateEnum.LeftHeavy;
+                }
+                if (RightHeight - LeftHeight > 1)
+                {
+                    return TreeStateEnum.RightHeavy;
+                }
+                return TreeStateEnum.Balanced;
+            }
+        }
 
         /// <summary>
         /// Constructor without parameter.
@@ -73,77 +139,9 @@ namespace AVLTreeLib.Model
         }
 
         /// <summary>
-        /// Node's parent reference.
-        /// </summary>
-        public AVLTreeNode<T> Parent { get;set;}
-
-        /// <summary>
-        /// Reference on the left descendent.
-        /// </summary>
-        public AVLTreeNode<T> Left
-        {
-            get => _left;
-         
-            set
-            {
-                _left = value;
-                if (_left != null)
-                {
-                    _left.Parent = this;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reference on the right descendent.
-        /// </summary>
-        public AVLTreeNode<T> Right
-        {
-            get => _right;
-
-            set
-            {
-                _right = value;
-                if (_right != null)
-                {
-                    _right.Parent = this;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Property height left tree.
-        /// </summary>
-        private int LeftHeight {get => MaxChildHeight(Left);}
-
-        /// <summary>
-        /// Property of height right tree.
-        /// </summary>
-        private int RightHeight { get=> MaxChildHeight(Right);}
-
-        /// <summary>
-        /// State of tree.
-        /// </summary>
-        private TreeStateEnum State
-        {
-            get
-            {
-                if (LeftHeight - RightHeight > 1)
-                {
-                    return TreeStateEnum.LeftHeavy;
-                }
-                if (RightHeight - LeftHeight > 1)
-                {
-                    return TreeStateEnum.RightHeavy;
-                }
-                return TreeStateEnum.Balanced;
-            }
-        }
-
-        /// <summary>
         /// Balance factor.
         /// </summary>
-        private int BalanceFactor { get => RightHeight - LeftHeight;}
+        //private int BalanceFactor { get => RightHeight - LeftHeight;}
 
         /// <summary>
         /// Method is implementing IComparable interface.
@@ -191,7 +189,7 @@ namespace AVLTreeLib.Model
         }
 
         /// <summary>
-        /// Method root replace.
+        /// Method root displacement to another place.
         /// </summary>
         /// <param name="newRoot">New root.</param>
         private void ReplaceRoot(AVLTreeNode<T> newRoot)
@@ -230,6 +228,38 @@ namespace AVLTreeLib.Model
                 RightRotation();
             }
         }
+
+        /// <summary>
+        /// Insert node in left or right node.
+        /// </summary>
+        /// <param name="node">Node.</param>
+        public void Insert(AVLTreeNode<T> node)
+        {
+            if (node.Value.CompareTo(Value) == -1)
+            {
+                if (Left == null)
+                {
+                    Left = node;
+                }
+                else
+                    Left.Insert(node);
+
+                Left.Balance();
+            }
+            else
+            {
+                if (Right == null)
+                {
+                    Right = node;
+                }
+                else
+                    Right.Insert(node);
+
+                Right.Balance();
+            }
+        }
+
+
 
         /// <summary>
         /// Comparing one node with another.
