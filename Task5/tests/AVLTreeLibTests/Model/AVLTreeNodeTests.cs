@@ -265,7 +265,7 @@ namespace AVLTreeLib.Model.Tests
 		}
 
 		/// <summary>
-		/// Testing <see cref="Node{T}.Insert(Node{T})"/> where T is Int32.
+		/// Given Insert When TSing Then Out Is Int Node.
 		/// </summary>
 		/// <param name="actualData">The data that is stored in the node.</param>
 		/// <param name="actualLeft">Left node.</param>
@@ -289,7 +289,7 @@ namespace AVLTreeLib.Model.Tests
 		}
 
 		/// <summary>
-		/// Given Add When TSing Then Out Is String Node
+		/// Given Insert When TSing Then Out Is String Node
 		/// </summary>
 		/// <param name="actualData">The data that is stored in the node.</param>
 		/// <param name="actualLeft">Left node.</param>
@@ -299,7 +299,7 @@ namespace AVLTreeLib.Model.Tests
 		/// <param name="expectedRight">Right node.</param>
 		[TestCase("c", "b", "a", "c", "b", "a")]
 		[TestCase("c", "b", "a", "c", "b", "a")]
-		public void GivenAddWhenTSingThenOutIsStringNode(string actualData, string actualLeft, string actualRight,
+		public void GivenInsertWhenTSingThenOutIsStringNode(string actualData, string actualLeft, string actualRight,
 	string expectedData, string expectedLeft, string expectedRight)
 		{
 			//Arrange
@@ -312,6 +312,33 @@ namespace AVLTreeLib.Model.Tests
 			Assert.AreEqual(expectedNode, actualNode);
 		}
 
+		/// <summary>
+		/// GivenBalanceRRWhenTIsIntThenOutIsIntNode
+		/// </summary>
+		/// <param name="actualData">The data that is stored in the node.</param>
+		/// <param name="actualRight">Right node.</param>
+		/// <param name="actualNextRight">Right node.</param>
+		/// <param name="expectedData">The data that is stored in the node.</param>
+		/// <param name="expectedLeft">Left node.</param>
+		/// <param name="expectedRight">Right node.</param>
+		[TestCase(1, 2, 3, 2, 1, 3)]
+		//[TestCase(1, 5, 7, 5, 1, 7)]
+		public void GivenBalanceRRWhenTIsIntThenOutIsIntNode(
+			int actualData, int actualRight, int actualNextRight,
+			int expectedData, int expectedLeft, int expectedRight)
+		{
+			//Arrange
+			AVLTreeNode<int> actualNotBalancedNode = new AVLTreeNode<int>(actualData, null, new AVLTreeNode<int>(actualRight, null, new AVLTreeNode<int>(actualNextRight)));
+			AVLTreeNode<int> expectedBalancedNode = new AVLTreeNode<int>(expectedData);
+			//Act
+			
+			actualNotBalancedNode.Balance();
+			AVLTreeNode<int>  actualBalancedNode = actualNotBalancedNode;
+			expectedBalancedNode.Insert(new AVLTreeNode<int>(expectedLeft));
+			expectedBalancedNode.Insert(new AVLTreeNode<int>(expectedRight));
+			//Assert
+			Assert.AreEqual(expectedBalancedNode, actualBalancedNode);
+		}
 
 
 
@@ -322,45 +349,39 @@ namespace AVLTreeLib.Model.Tests
 
 
 
+		/// <summary>
+		/// Test Given MaxChildHeight node's value when values are positive int then out is Child Nodes Height Int.
+		/// </summary>
+		/// <param name="nodesRoot">First value parameter.</param>
+		/// <param name="leftValue">Left value parameter.</param>
+		/// <param name="rightValue">Right value parameter.</param>
+		/// <param name="expectedValue">Expected value parameter.</param>
+		[TestCase(2, 1, 3, 5, 5)]
+		//[TestCase(1, 2, 4, 3)]
+		public void GivenReplaceNodes_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
+			int nodesParentValue, int leftValue, int rightValue, 
+			int replacedNodeValue, int expectedValue)
+		{
+			//Arrange
 
-		///// <summary>
-		///// Test Given MaxChildHeight node's value when values are positive int then out is Child Nodes Height Int.
-		///// </summary>
-		///// <param name="nodesRoot">First value parameter.</param>
-		///// <param name="leftValue">Left value parameter.</param>
-		///// <param name="rightValue">Right value parameter.</param>
-		///// <param name="expectedValue">Expected value parameter.</param>
-		//[TestCase(2, 1, 3, 5, 5)]
-		////[TestCase(1, 2, 4, 3)]
-		//public void GivenReplaceNodes_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
-		//	int nodesParentValue, int leftValue, int rightValue,int replacedNodeValue, int expectedValue)
-		//{
-		//	//Arrange
+			AVLTreeNode<int> parentNode = new AVLTreeNode<int>();
+			parentNode.Parent = new AVLTreeNode<int>(4);
+			parentNode.Value = nodesParentValue;
+			parentNode.Left = new AVLTreeNode<int>(leftValue);
+			parentNode.Right = new AVLTreeNode<int>(rightValue);
 
-		//	AVLTreeNode<int> parentNode = new AVLTreeNode<int>(nodesParentValue);
-		//	parentNode.Left = new AVLTreeNode<int>(leftValue);
-		//	parentNode.Right = new AVLTreeNode<int>(rightValue);
+			AVLTreeNode<int> newRoot = new AVLTreeNode<int>(replacedNodeValue);
 
-		//	parentNode._tree = new AVLTree<int>();
+			AVLTreeNode<int> testNode = new AVLTreeNode<int>();
+			
+			MethodInfo methodInfo = typeof(AVLTreeNode<int>).GetMethod("ReplaceRoot",
+			BindingFlags.NonPublic | BindingFlags.Instance);
 
-		//	AVLTreeNode<int> newRoot = new AVLTreeNode<int>(replacedNodeValue);
-
-
-		//	AVLTreeNode<int> testNode = new AVLTreeNode<int>();
-
-		//	PropertyInfo propertyInfo = typeof(AVLTreeNode<int>).GetProperty("_tree",
-		//	BindingFlags.NonPublic | BindingFlags.Public);
-		//	propertyInfo.SetValue(obj,new )
-
-
-		//	MethodInfo methodInfo = typeof(AVLTreeNode<int>).GetMethod("ReplaceRoot",
-		//	BindingFlags.NonPublic | BindingFlags.Instance);
-
-		//	//Act
-		//	var actualResult = methodInfo.Invoke(testNode, new object[] { newRoot });
-		//	//Assert
-		//	Assert.AreEqual(expectedValue, actualResult);
-		//}
+			//Act
+			var actualResult = methodInfo.Invoke(testNode, new object[] { newRoot });
+			//Assert
+			Assert.AreEqual(expectedValue, actualResult);
+		}
 
 
 

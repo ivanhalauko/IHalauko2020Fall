@@ -207,7 +207,16 @@ namespace AVLTreeLib.Model
             }
             else
             {
-                _tree.Root = newRoot;
+				if (_tree==null)
+				{
+                    AVLTree<T> _tree = new AVLTree<T>();
+                    _tree.Root = newRoot;
+                }
+				else
+				{
+                    _tree.Root = newRoot;
+                }
+                
             }
             newRoot.Parent = this.Parent;
             this.Parent = newRoot;
@@ -216,7 +225,7 @@ namespace AVLTreeLib.Model
         /// <summary>
         /// Balance method.
         /// </summary>
-        internal void Balance()
+        public void Balance()
         {
             if (State == TreeStateEnum.RightHeavy)
             {
