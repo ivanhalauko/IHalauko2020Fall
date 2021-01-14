@@ -189,31 +189,31 @@ namespace AVLTreeLib.Model
         }
 
         /// <summary>
-        /// Method root displacement to another place.
+        /// Replace root's parent link on himself.
         /// </summary>
-        /// <param name="newRoot">New root.</param>
-        private void ReplaceRoot(AVLTreeNode<T> newRoot)
+        /// <param name="root">New root.</param>
+        private void ReplaceRoot(AVLTreeNode<T> root)
         {
             if (this.Parent != null)
             {
                 if (this.Parent.Left == this)
                 {
-                    this.Parent.Left = newRoot;
+                    this.Parent.Left = root;
                 }
                 else if (this.Parent.Right == this)
                 {
-                    this.Parent.Right = newRoot;
+                    this.Parent.Right = root;
                 }
             }
             else
             {
 				if (_tree != null)
 				{            
-                    _tree.Root = newRoot;
+                    _tree.Root = root;
                 }             
             }
-            newRoot.Parent = this.Parent;
-            this.Parent = newRoot;
+            root.Parent = this.Parent;
+            this.Parent = root;
         }
 
         /// <summary>

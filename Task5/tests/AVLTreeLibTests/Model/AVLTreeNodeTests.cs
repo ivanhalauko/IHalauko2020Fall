@@ -274,12 +274,15 @@ namespace AVLTreeLib.Model.Tests
 		/// <param name="expectedLeft">Left node.</param>
 		/// <param name="expectedRight">Right node.</param>
 		[TestCase(5, 3, 1, 5, 3, 1)]
-		//[TestCase(8, 3, 1, 8, 3, 1)]
-		public void GivenIsertWhenTIsIntThenOutIsIntNode(int actualData, int actualLeft, int actualRight,
+		public void GivenIsertWhenTIsIntThenOutIsIntNode(
+			int actualData, int actualLeft, int actualRight,
 			int expectedData, int expectedLeft, int expectedRight)
 		{
 			//Arrange
-			AVLTreeNode<int> actualNode = new AVLTreeNode<int>(actualData, new AVLTreeNode<int>(actualLeft), new AVLTreeNode<int>(actualRight));
+			AVLTreeNode<int> actualNode = new AVLTreeNode<int>(
+				value: actualData,
+				left: new AVLTreeNode<int>(actualLeft), 
+				right: new AVLTreeNode<int>(actualRight));
 			AVLTreeNode<int> expectedNode = new AVLTreeNode<int>(expectedData);
 			//Act
 			expectedNode.Insert(new AVLTreeNode<int>(expectedLeft));
@@ -299,11 +302,15 @@ namespace AVLTreeLib.Model.Tests
 		/// <param name="expectedRight">Right node.</param>
 		[TestCase("c", "b", "a", "c", "b", "a")]
 		[TestCase("c", "b", "a", "c", "b", "a")]
-		public void GivenInsertWhenTSingThenOutIsStringNode(string actualData, string actualLeft, string actualRight,
-	string expectedData, string expectedLeft, string expectedRight)
+		public void GivenInsertWhenTSingThenOutIsStringNode(
+			string actualData, string actualLeft, string actualRight,
+			string expectedData, string expectedLeft, string expectedRight)
 		{
 			//Arrange
-			AVLTreeNode<string> actualNode = new AVLTreeNode<string>(actualData, new AVLTreeNode<string>(actualLeft), new AVLTreeNode<string>(actualRight));
+			AVLTreeNode<string> actualNode = new AVLTreeNode<string>(
+				value: actualData, 
+				left: new AVLTreeNode<string>(actualLeft), 
+				right: new AVLTreeNode<string>(actualRight));
 			AVLTreeNode<string> expectedNode = new AVLTreeNode<string>(expectedData);
 			//Act
 			expectedNode.Insert(new AVLTreeNode<string>(expectedLeft));
@@ -313,14 +320,46 @@ namespace AVLTreeLib.Model.Tests
 		}
 
 		/// <summary>
+		/// Given replace roots parent link on himself when nodes value is positive int then out is new node int.
+		/// </summary>
+		/// <param name="leftLeftValue">Node's left-left value.</param>
+		/// <param name="leftValue">Node's left value parameter.</param>
+		/// <param name="nodeValue">Node's value parameter.</param>
+		/// <param name="nodesParentValue">Node's parent value parameter.</param>
+		[TestCase(0, 1, 2, 3)]
+		[TestCase(5, 7, 10, 22)]
+		[TestCase(12, 20, 25, 27)]
+		public void GivenReplaceRootsParentLinkOnHimself_WhenNodesValueIsPositiveInt_ThenOutIsNewNodeInt(
+			int leftLeftValue, int leftValue, int nodeValue, int nodesParentValue)
+		{
+			//Arrange
+			AVLTreeNode<int> LeftLeftNode = new AVLTreeNode<int>(leftLeftValue, left: null, right: null);           //	root.Parent			3
+			AVLTreeNode<int> LeftNode = new AVLTreeNode<int>(leftValue, left: LeftLeftNode, right: null);           //	   			       /	|	root.Parent	|
+																													//	root	          2		|	   2		|
+			AVLTreeNode<int> node = new AVLTreeNode<int>(value: nodeValue, left: LeftNode, right: null);                //				     /		|	  /			|
+			node.Parent = new AVLTreeNode<int>(nodesParentValue, node, right: null);                                //	left		    1		|	 1			|
+																													//				   /		|	/			|
+			AVLTreeNode<int> expectedResult = new AVLTreeNode<int>(value: nodeValue, left: LeftNode, right: null);  //  leftLeft      0			|  0			|
+			expectedResult.Parent = expectedResult;                                                                 //
+
+			//Act
+			MethodInfo methodInfo = typeof(AVLTreeNode<int>).GetMethod("ReplaceRoot",
+			BindingFlags.NonPublic | BindingFlags.Instance);
+			methodInfo.Invoke(node, new object[] { node });
+
+			AVLTreeNode<int> actualResult = node;
+			bool Result = actualResult.Equals(expectedResult);
+			//Assert
+			Assert.AreEqual(expectedResult, actualResult);
+		}
+
+		/// <summary>
 		/// GivenBalanceRRWhenTIsIntThenOutIsIntNode
 		/// </summary>
-		/// <param name="actualData">The data that is stored in the node.</param>
-		/// <param name="actualRight">Right node.</param>
-		/// <param name="actualNextRight">Right node.</param>
-		/// <param name="expectedData">The data that is stored in the node.</param>
-		/// <param name="expectedLeft">Left node.</param>
-		/// <param name="expectedRight">Right node.</param>
+		/// <param name="leftLeftLeftValue">The data that is stored in the node.</param>
+		/// <param name="leftLeftValue">Left Left Value node.</param>
+		/// <param name="leftValuet">Left Valuet node.</param>
+		/// <param name="rootValue">Root Value node before balance.</param>
 		[TestCase(5, 7, 8, 9)]
 		[TestCase(0, 1, 2, 3)]
 		[TestCase(3, 6, 8, 9)]
@@ -344,43 +383,6 @@ namespace AVLTreeLib.Model.Tests
 			//Assert
 			Assert.AreEqual(expectedBalancedNode, actualBalancedNode);
 		}
-
-
-		/// <summary>
-		/// Test Given MaxChildHeight node's value when values are positive int then out is Child Nodes Height Int.
-		/// </summary>
-		/// <param name="nodesRoot">First value parameter.</param>
-		/// <param name="leftValue">Left value parameter.</param>
-		/// <param name="rightValue">Right value parameter.</param>
-		/// <param name="expectedValue">Expected value parameter.</param>
-		[TestCase(2, 1, 3, 5, 5)]
-		//[TestCase(1, 2, 4, 3)]
-		public void GivenReplaceRoot_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
-			int nodesParentValue, int leftValue, int rightValue, 
-			int replacedNodeValue, int expectedValue)
-		{
-			//Arrange
-
-			AVLTreeNode<int> parentNode = new AVLTreeNode<int>();
-			parentNode.Parent = new AVLTreeNode<int>(4);
-			parentNode.Value = nodesParentValue;
-			parentNode.Left = new AVLTreeNode<int>(leftValue);
-			parentNode.Right = new AVLTreeNode<int>(rightValue);
-
-			AVLTreeNode<int> newRoot = new AVLTreeNode<int>(replacedNodeValue);
-
-			AVLTreeNode<int> testNode = new AVLTreeNode<int>();
-			
-			MethodInfo methodInfo = typeof(AVLTreeNode<int>).GetMethod("ReplaceRoot",
-			BindingFlags.NonPublic | BindingFlags.Instance);
-
-			//Act
-			var actualResult = methodInfo.Invoke(testNode, new object[] { newRoot });
-			//Assert
-			Assert.AreEqual(expectedValue, actualResult);
-		}
-
-
 
 	}
 }
