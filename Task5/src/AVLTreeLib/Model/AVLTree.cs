@@ -34,7 +34,12 @@ namespace AVLTreeLib.Model
 		/// <param name="value">Node's value.</param>
 		public void Add(T value)
 		{
-			throw new NotImplementedException();
+			if (Root == null)
+				Root = new AVLTreeNode<T>(value, null, this);
+			else
+				AddTo(Root, value);
+
+			Count++;
 		}
 
 		/// <summary>

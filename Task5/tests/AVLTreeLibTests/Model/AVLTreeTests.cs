@@ -46,5 +46,66 @@ namespace AVLTreeLib.Model.Tests
 			//Assert
 			Assert.AreEqual(expectedTree, actualTree);
 		}
+
+		/// <summary>
+		/// Given add when T is int then out is int node.
+		/// </summary>
+		/// <param name="value">Node's value.</param>
+		/// <param name="left">Node's left node value.</param>
+		/// <param name="right">>Node's left node value.</param>
+		/// <param name="rightRight">Node's right-right node value.</param>
+		[TestCase(30, 19, 40, 67)]
+		[TestCase(2, 1, 3, 4)]
+		public void GivenAdd_WhenTIsInt_ThenOutIsIntNode(int value, int left, int right, int rightRight)
+		{
+			//Arrange
+			AVLTree<int> expectedTree = new AVLTree<int>();
+			expectedTree.Root = new AVLTreeNode<int>(
+				value: value, 
+				left: new AVLTreeNode<int>(left), 
+				right: new AVLTreeNode<int>(right, null, new AVLTreeNode<int>(rightRight)));
+
+			AVLTree<int> actualTree = new AVLTree<int>();
+			
+			//Act
+			actualTree.Add(left);
+			actualTree.Add(value);
+			actualTree.Add(right);
+			actualTree.Add(rightRight);
+
+			//Assert
+			Assert.AreEqual(expectedTree, actualTree);
+		}
+
+		/// <summary>
+		/// Given add when T is int then out is int node.
+		/// </summary>
+		/// <param name="value">Node's value.</param>
+		/// <param name="left">Node's left node value.</param>
+		/// <param name="right">>Node's left node value.</param>
+		/// <param name="rightRight">Node's right-right node value.</param>
+		[TestCase("f", "e", "i", "k")]
+		[TestCase("b", "a", "c", "d")]
+		public void GivenAddWhenTIsStringThenOutIsStringNode(string value, string left, string right, string rightRight)
+		{
+			//Arrange
+			AVLTree<string> expectedTree = new AVLTree<string>();
+			expectedTree.Root = new AVLTreeNode<string>(
+				value: value, 
+				left: new AVLTreeNode<string>(left), 
+				right: new AVLTreeNode<string>(right, null, new AVLTreeNode<string>(rightRight)));
+
+			AVLTree<string> actualTree = new AVLTree<string>();
+
+			//Act
+			actualTree.Add(left);
+			actualTree.Add(value);
+			actualTree.Add(right);
+			actualTree.Add(rightRight);
+
+			//Assert
+			Assert.AreEqual(expectedTree, actualTree);
+		}
+
 	}
 }
