@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
-using AVLTreeLib.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AVLTreeLib.Model.Tests
 {
@@ -105,6 +101,39 @@ namespace AVLTreeLib.Model.Tests
 
 			//Assert
 			Assert.AreEqual(expectedTree, actualTree);
+		}
+
+		/// <summary>
+		/// Given In Order Travesal When T Is Int  Then Out Is Result String.
+		/// </summary>
+		/// <param name="value">Node's value.</param>
+		/// <param name="left">Node's left node value.</param>
+		/// <param name="right">>Node's left node value.</param>
+		/// <param name="rightRight">Node's right-right node value.</param>
+		/// <param name="expectedResult">Expected Result string with Node's value.</param>
+		[TestCase(30, 19, 40, 67, "19 30 40 67 ")]
+		[TestCase(2, 1, 3, 4, "1 2 3 4 ")]
+		public void GivenInOrderTravesal_WhenTIsInt_ThenOutIsResultString(
+			int value, int left, int right, int rightRight,
+			string expectedResult)
+		{
+			//Arrange
+			AVLTree<int> actualTree = new AVLTree<int>();
+			actualTree.Add(left);
+			actualTree.Add(value);
+			actualTree.Add(right);
+			actualTree.Add(rightRight);
+
+			string actualResult =null;
+			//Act
+
+			foreach (var item in actualTree)
+			{
+				actualResult += item + " ";
+			}
+
+			//Assert
+			Assert.AreEqual(expectedResult, actualResult);
 		}
 
 	}

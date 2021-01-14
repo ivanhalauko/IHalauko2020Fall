@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AVLTreeLib.Model
 {
@@ -81,7 +79,8 @@ namespace AVLTreeLib.Model
 		/// <returns>Returns an enumerator that iterates through a collection.</returns>
 		public IEnumerator<T> GetEnumerator()
 		{
-			throw new NotImplementedException();
+			List<T> test = InOrderTravesal().ToList();
+			return test.GetEnumerator();
 		}
 
 		/// <summary>
@@ -90,7 +89,37 @@ namespace AVLTreeLib.Model
 		/// <returns>Returned tree's elements.</returns>
 		public IEnumerable<T> InOrderTravesal()
 		{
-			throw new NotImplementedException();
+			if (Root != null)
+			{
+				Stack<AVLTreeNode<T>> stack = new Stack<AVLTreeNode<T>>();
+				AVLTreeNode<T> current = Root;
+				bool goLeftNext = true;
+				stack.Push(current);
+
+				while (stack.Count > 0)
+				{
+					if (goLeftNext)
+					{
+						while (current.Left != null)
+						{
+							stack.Push(current);
+							current = current.Left;
+						}
+					}
+					yield return current.Value;
+
+					if (current.Right != null)
+					{
+						current = current.Right;
+						goLeftNext = true;
+					}
+					else
+					{
+						current = stack.Pop();
+						goLeftNext = false;
+					}
+				}
+			}
 		}
 
 		/// <summary>
