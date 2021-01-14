@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Model\AVLTreeNodeTests.cs" />
+    <Compile Include="Model\AVLTreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

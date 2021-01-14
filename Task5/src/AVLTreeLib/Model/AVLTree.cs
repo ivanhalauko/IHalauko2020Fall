@@ -24,8 +24,8 @@ namespace AVLTreeLib.Model
 		/// </summary>
 		public AVLTree()
 		{
-			//Root = null;
-			//Count = 0;
+			Root = null;
+			Count = 0;
 		}
 
 		/// <summary>
@@ -44,7 +44,30 @@ namespace AVLTreeLib.Model
 		/// <param name="value">Node's value.</param>
 		public void AddTo(AVLTreeNode<T> node, T value)
 		{
-			throw new NotImplementedException();
+			if (value.CompareTo(node.Value) < 0)
+			{
+				//создание левого узла, если его нет
+				if (node.Left == null)
+				{
+					node.Left = new AVLTreeNode<T>(value, node, this);
+				}
+				else
+				{
+					AddTo(node.Left, value);
+				}
+			}
+			else
+			{
+				if (node.Right == null)
+				{
+					node.Right = new AVLTreeNode<T>(value, node, this);
+				}
+				else
+				{
+					AddTo(node.Right, value);
+				}
+			}
+			node.Balance();
 		}
 
 		/// <summary>
