@@ -141,7 +141,7 @@ namespace AVLTreeLib.Model
         /// <summary>
         /// Balance factor.
         /// </summary>
-        //private int BalanceFactor { get => RightHeight - LeftHeight;}
+        private int BalanceFactor { get => RightHeight - LeftHeight;}
 
         /// <summary>
         /// Method is implementing IComparable interface.
@@ -207,16 +207,10 @@ namespace AVLTreeLib.Model
             }
             else
             {
-				if (_tree==null)
-				{
-                    AVLTree<T> _tree = new AVLTree<T>();
+				if (_tree != null)
+				{            
                     _tree.Root = newRoot;
-                }
-				else
-				{
-                    _tree.Root = newRoot;
-                }
-                
+                }             
             }
             newRoot.Parent = this.Parent;
             this.Parent = newRoot;
@@ -229,12 +223,27 @@ namespace AVLTreeLib.Model
         {
             if (State == TreeStateEnum.RightHeavy)
             {
-                LeftRotation();
-
+                if (Right != null && Right.BalanceFactor < 0)
+                {
+                    LeftRotation();
+                    RightRotation();
+                }
+                else
+				{
+                    LeftRotation();
+                }
             }
             else if (State == TreeStateEnum.LeftHeavy)
             {
-                RightRotation();
+                if (Left != null && Left.BalanceFactor > 0)
+                {
+                    RightRotation();
+                    LeftRotation();
+                }
+                else
+                {
+                    RightRotation();
+                }
             }
         }
 

@@ -321,32 +321,29 @@ namespace AVLTreeLib.Model.Tests
 		/// <param name="expectedData">The data that is stored in the node.</param>
 		/// <param name="expectedLeft">Left node.</param>
 		/// <param name="expectedRight">Right node.</param>
-		[TestCase(1, 2, 3, 2, 1, 3)]
-		//[TestCase(1, 5, 7, 5, 1, 7)]
+		[TestCase(5, 7, 8, 9)]
+		[TestCase(0, 1, 2, 3)]
+		[TestCase(3, 6, 8, 9)]
 		public void GivenBalanceRRWhenTIsIntThenOutIsIntNode(
-			int actualData, int actualRight, int actualNextRight,
-			int expectedData, int expectedLeft, int expectedRight)
+			int leftLeftLeftValue, int leftLeftValue, int leftValue, int rootValue)
 		{
 			//Arrange
-			AVLTreeNode<int> actualNotBalancedNode = new AVLTreeNode<int>(actualData, null, new AVLTreeNode<int>(actualRight, null, new AVLTreeNode<int>(actualNextRight)));
-			AVLTreeNode<int> expectedBalancedNode = new AVLTreeNode<int>(expectedData);
-			//Act
+			AVLTreeNode<int> leftLeftLeftNode = new AVLTreeNode<int>(leftLeftLeftValue, left: null, right: null);
+			AVLTreeNode<int> leftLeftNode = new AVLTreeNode<int>(leftLeftValue, leftLeftLeftNode,right: null);
+			AVLTreeNode<int> leftNode = new AVLTreeNode<int>(leftValue, leftLeftNode, right:null);
+			AVLTreeNode<int> actualNotBalancedNode = new AVLTreeNode<int>(rootValue, leftNode, right: null);
+			//Expected Node. 
+			AVLTreeNode<int> expectedBalancedNode = new AVLTreeNode<int>(rootValue, null, right: null);
+			expectedBalancedNode.Parent = leftNode;
 			
+			//Act
+			//Balance with rotation node.
 			actualNotBalancedNode.Balance();
-			AVLTreeNode<int>  actualBalancedNode = actualNotBalancedNode;
-			expectedBalancedNode.Insert(new AVLTreeNode<int>(expectedLeft));
-			expectedBalancedNode.Insert(new AVLTreeNode<int>(expectedRight));
+			AVLTreeNode<int> actualBalancedNode = actualNotBalancedNode;
+
 			//Assert
 			Assert.AreEqual(expectedBalancedNode, actualBalancedNode);
 		}
-
-
-
-
-
-
-
-
 
 
 		/// <summary>
@@ -358,7 +355,7 @@ namespace AVLTreeLib.Model.Tests
 		/// <param name="expectedValue">Expected value parameter.</param>
 		[TestCase(2, 1, 3, 5, 5)]
 		//[TestCase(1, 2, 4, 3)]
-		public void GivenReplaceNodes_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
+		public void GivenReplaceRoot_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(
 			int nodesParentValue, int leftValue, int rightValue, 
 			int replacedNodeValue, int expectedValue)
 		{

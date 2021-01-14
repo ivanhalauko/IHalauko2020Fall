@@ -24,8 +24,8 @@ namespace AVLTreeLib.Model
 		/// </summary>
 		public AVLTree()
 		{
-			Root = null;
-			Count = 0;
+			//Root = null;
+			//Count = 0;
 		}
 
 		/// <summary>
