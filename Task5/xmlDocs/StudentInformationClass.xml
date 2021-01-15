@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StudentInformationClass</name>
+    </assembly>
+    <members>
+        <member name="T:StudentInformationClass.Interfaces.IRepository`1">
+            <summary>
+            IRepository interface.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:StudentInformationClass.Interfaces.IRepository`1.ShowAllTree">
+            <summary>
+            Method show node's of tree.
+            </summary>
+            <returns>Nodes of tree.</returns>
+        </member>
+        <member name="M:StudentInformationClass.Interfaces.IRepository`1.Add(`0)">
+            <summary>
+            Data add.
+            </summary>
+            <param name="obj">Oobject.</param>
+        </member>
+        <member name="M:StudentInformationClass.Interfaces.IRepository`1.Equals(System.Object)">
+            <summary>
+            Comparing one StudentTestResultRepository with another.
+            </summary>
+            <param name="obj">The compared StudentTestResultRepository.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:StudentInformationClass.Interfaces.IRepository`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
+        <member name="T:StudentInformationClass.Entity">
+            <summary>
+            Abstract entity class.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.Entity.Id">
+            <summary>
+            Property Id.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Entity.CompareTo(System.Object)">
+            <summary>
+            Method for compare objects.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StudentInformationClass.Entity.Equals(System.Object)">
+            <summary>
+            Comparing one StudentTestResultRepository with another.
+            </summary>
+            <param name="obj">The compared StudentTestResultRepository.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:StudentInformationClass.Entity.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
+        <member name="T:StudentInformationClass.StudentInfo">
+            <summary>
+            Student model.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.StudentInfo.StudentName">
+            <summary>
+            Property student's name.
+            </summary>
+        </member>
+        <member name="T:StudentInformationClass.TestsInfo">
+            <summary>
+            Class describe students tests information.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.TestsInfo.TestName">
+            <summary>
+            Property test's name.
+            </summary>
+        </member>
+        <member name="T:StudentInformationClass.TestsResult">
+            <summary>
+            Class describing students test's results.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.TestsResult.IdStudent">
+            <summary>
+            Student's id property.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.TestsResult.IdTest">
+            <summary>
+            Student's id tests property.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.TestsResult.StudentTestRating">
+            <summary>
+            Student's tests rating property.
+            </summary>
+        </member>
+        <member name="P:StudentInformationClass.TestsResult.DateOfExams">
+            <summary>
+            Date of Exams property.
+            </summary>
+        </member>
+        <member name="T:StudentInformationClass.Repository.Repository`1">
+            <summary>
+            Clas repository for varios types.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:StudentInformationClass.Repository.Repository`1.AVLTree">
+            <summary>
+            Property AVLTree.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Repository.Repository`1.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Repository.Repository`1.ShowAllTree">
+            <summary>
+            Method show node's of tree.
+            </summary>
+            <param name="keySelector">Key.</param>
+            <param name="desinding">Desinding.</param>
+            <returns>Nodes of tree.</returns>
+        </member>
+        <member name="M:StudentInformationClass.Repository.Repository`1.Add(`0)">
+            <summary>
+            Data add.
+            </summary>
+            <param name="obj">Oobject.</param>
+        </member>
+        <member name="M:StudentInformationClass.Repository.Repository`1.Equals(System.Object)">
+            <summary>
+            Comparing one StudentTestResultRepository with another.
+            </summary>
+            <param name="obj">The compared StudentTestResultRepository.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:StudentInformationClass.Repository.Repository`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
+    </members>
+</doc>
