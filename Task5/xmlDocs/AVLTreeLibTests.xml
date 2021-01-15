@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AVLTreeLibTests</name>
+    </assembly>
+    <members>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCreateNode_WhenTIsInt_ThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given create node when T is Int then out is int node.
+            </summary>
+            <param name="valueActual">Node's actual value.</param>
+            <param name="leftActual">Left node's actual value.</param>
+            <param name="rightActual">Right node's actual value.</param>
+            <param name="valueExpected">Node's expected value.</param>
+            <param name="leftExpected">Left node's expected value.</param>
+            <param name="rightExpected">Right node's expected value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCreateNode_WhenTIsString_ThenOutIsStringNode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Given create node when T is string then out is string node.
+            </summary>
+            <param name="valueActual">Node's actual value.</param>
+            <param name="leftActual">Left node's actual value.</param>
+            <param name="rightActual">Right node's actual value.</param>
+            <param name="valueExpected">Node's expected value.</param>
+            <param name="leftExpected">Left node's expected value.</param>
+            <param name="rightExpected">Right node's expected value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsPositiveInt_ThenOutZero(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given compare two nodes value when value is positive int then out zero.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsPositiveInt_ThenOutIsNegativeValue(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given compare two nodes value when value is positive int then out is negative value.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsPositiveInt_ThenOutIsPositiveValue(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given compare two nodes value when value is positive int then out is positive value.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsNotNull_ThenOutIsZeroValue(System.String,System.String,System.Int32)">
+            <summary>
+            Given compare two nodes string value when value is not NUL then out is zero value.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsNotNull_ThenOutIsPositiveValue(System.String,System.String,System.Int32)">
+            <summary>
+            Given compare two nodes string value when value is not NUL then out is positive value.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenCompareTwoNodesValue_WhenValueIsNotNull_ThenOutIsNegativeValue(System.String,System.String,System.Int32)">
+            <summary>
+            Given compare two nodes string value when value is not NUL then out is negative value.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenEqualTwoNodes_WhenValueIsPositiveInt_ThenOutIsTrue(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Test Given equal two node's value when values are positive int then out is true.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenEqualTwoNodes_WhenValueIsPositiveInt_ThenOutIsFalse(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Test Given equal two node's value when values are positive int then out is false.
+            </summary>
+            <param name="firstValue">First value parameter.</param>
+            <param name="secondValue">Second value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenMaxChildHeightNode_WhenNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Test Given MaxChildHeight node's value when values are positive int then out is child nodes height int.
+            </summary>
+            <param name="nodesRoot">First value parameter.</param>
+            <param name="leftValue">Left value parameter.</param>
+            <param name="rightValue">Right value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenMaxChildHeightNodes_WhenTwoNodesValueIsPositiveInt_ThenOutIsChildNodesHeightInt(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Test Given MaxChildHeight node's value when values are positive int then out is Child Nodes Height Int.
+            </summary>
+            <param name="nodesRoot">First value parameter.</param>
+            <param name="leftValue">Left value parameter.</param>
+            <param name="rightValue">Right value parameter.</param>
+            <param name="expectedValue">Expected value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenIsertWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given Insert When TSing Then Out Is Int Node.
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenInsertWhenTSingThenOutIsStringNode(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Given Insert When TSing Then Out Is String Node
+            </summary>
+            <param name="actualData">The data that is stored in the node.</param>
+            <param name="actualLeft">Left node.</param>
+            <param name="actualRight">Right node.</param>
+            <param name="expectedData">The data that is stored in the node.</param>
+            <param name="expectedLeft">Left node.</param>
+            <param name="expectedRight">Right node.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenReplaceRootsParentLinkOnHimself_WhenNodesValueIsPositiveInt_ThenOutIsNewNodeInt(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given replace roots parent link on himself when nodes value is positive int then out is new node int.
+            </summary>
+            <param name="leftLeftValue">Node's left-left value.</param>
+            <param name="leftValue">Node's left value parameter.</param>
+            <param name="nodeValue">Node's value parameter.</param>
+            <param name="nodesParentValue">Node's parent value parameter.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeNodeTests.GivenBalanceRRWhenTIsIntThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            GivenBalanceRRWhenTIsIntThenOutIsIntNode
+            </summary>
+            <param name="leftLeftLeftValue">The data that is stored in the node.</param>
+            <param name="leftLeftValue">Left Left Value node.</param>
+            <param name="leftValuet">Left Valuet node.</param>
+            <param name="rootValue">Root Value node before balance.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeTests.GivenAddToNewNodeToTree_WhenTIsInt_ThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given AddTo new node When T is int Then Out Is Int Tree.
+            </summary>
+            <param name="leftValue">Left value.</param>
+            <param name="rootsValue">Root's value.</param>
+            <param name="rightValue">Right value.</param>
+            <param name="additionalValue">Additional Value to tree.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeTests.GivenAdd_WhenTIsInt_ThenOutIsIntNode(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Given add when T is int then out is int node.
+            </summary>
+            <param name="value">Node's value.</param>
+            <param name="left">Node's left node value.</param>
+            <param name="right">>Node's left node value.</param>
+            <param name="rightRight">Node's right-right node value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeTests.GivenAddWhenTIsStringThenOutIsStringNode(System.String,System.String,System.String,System.String)">
+            <summary>
+            Given add when T is int then out is int node.
+            </summary>
+            <param name="value">Node's value.</param>
+            <param name="left">Node's left node value.</param>
+            <param name="right">>Node's left node value.</param>
+            <param name="rightRight">Node's right-right node value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.Tests.AVLTreeTests.GivenInOrderTravesal_WhenTIsInt_ThenOutIsResultString(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Given In Order Travesal When T Is Int  Then Out Is Result String.
+            </summary>
+            <param name="value">Node's value.</param>
+            <param name="left">Node's left node value.</param>
+            <param name="right">>Node's left node value.</param>
+            <param name="rightRight">Node's right-right node value.</param>
+            <param name="expectedResult">Expected Result string with Node's value.</param>
+        </member>
+    </members>
+</doc>

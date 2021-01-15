@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StudentInformationClassTests</name>
+    </assembly>
+    <members>
+        <member name="T:StudentInformationClass.Tests.RepositoryTests">
+            <summary>
+            Class for testing repository.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Tests.RepositoryTests.GivenShowAllTree_WhenOrderByDescendingTestRatingAndOrderByIdStudent_ThenOutOrderDescending">
+            <summary>
+            Given show all tree when order by descending test rating and order by id student then out order descending.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Tests.RepositoryTests.GivenShowAllTree_WhenOrderByStudentTestRating_ThenOutOrderDescending">
+            <summary>
+            Given show all tree when order by student results then out order descending.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Tests.RepositoryTests.GivenShowAllTree_WhenOrderByStudentResults_ThenOutOrder">
+            <summary>
+            Given show all tree when order by student results then out order.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Tests.RepositoryTests.GivenShowAllTree_WhenOrderByStudentName_ThenOutIsOrdered">
+            <summary>
+            Given show all tree when order by student name then out is ordered.
+            </summary>
+        </member>
+        <member name="M:StudentInformationClass.Tests.RepositoryTests.GivenShowAllTree_WhenOrderDescendingByStudentName_ThenOutIsOrderDescending">
+            <summary>
+            Given show all tree when order descending by student name then out is order descending.
+            </summary>
+        </member>
+    </members>
+</doc>
