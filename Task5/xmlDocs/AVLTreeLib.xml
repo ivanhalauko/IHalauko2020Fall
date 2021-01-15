@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AVLTreeLib</name>
+    </assembly>
+    <members>
+        <member name="T:AVLTreeLib.Enum.TreeStateEnum">
+            <summary>
+            Tree's state.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Interfaces.IAVLTree`1.Root">
+            <summary>
+            Property of head.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Interfaces.IAVLTree`1.Count">
+            <summary>
+            Quantity nodes of tree.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Interfaces.IAVLTree`1.Add(`0)">
+            <summary>
+            Adding method nodes to tree.
+            </summary>
+            <param name="value">Node's value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Interfaces.IAVLTree`1.AddTo(AVLTreeLib.Model.AVLTreeNode{`0},`0)">
+            <summary>
+            Adding method nodes to tree's place.
+            </summary>
+            <param name="node">Node.</param>
+            <param name="value">Node's value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Interfaces.IAVLTree`1.InOrderTravesal">
+            <summary>
+            Method make in order travesal. Sorts the tree's value in ascending order.
+            </summary>
+            <returns>Returned tree's elements.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Interfaces.IAVLTree`1.GetEnumerator">
+            <summary>
+            Method GetEnumerator.
+            </summary>
+            <returns>Returns an enumerator that iterates through a collection.</returns>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTree`1.Root">
+            <summary>
+            Property of head.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTree`1.Count">
+            <summary>
+            Quantity nodes of tree.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.#ctor">
+            <summary>
+            Constructor without parameters.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.Add(`0)">
+            <summary>
+            Adding method nodes to tree.
+            </summary>
+            <param name="value">Node's value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.AddTo(AVLTreeLib.Model.AVLTreeNode{`0},`0)">
+            <summary>
+            Adding method nodes to tree's place.
+            </summary>
+            <param name="node">Node.</param>
+            <param name="value">Node's value.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.GetEnumerator">
+            <summary>
+            Method GetEnumerator.
+            </summary>
+            <returns>Returns an enumerator that iterates through a collection.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.InOrderTravesal">
+            <summary>
+            Method make in order travesal. Sorts the tree's value in ascending order.
+            </summary>
+            <returns>Returned tree's elements.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.Equals(System.Object)">
+            <summary>
+            Comparing one node with another.
+            </summary>
+            <param name="obj">The compared node.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTree`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
+        <member name="T:AVLTreeLib.Model.AVLTreeNode`1">
+            <summary>
+            Node's type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:AVLTreeLib.Model.AVLTreeNode`1._tree">
+            <summary>
+            Field tree.
+            </summary>
+        </member>
+        <member name="F:AVLTreeLib.Model.AVLTreeNode`1._left">
+            <summary>
+            Root's left descendent.
+            </summary>
+        </member>
+        <member name="F:AVLTreeLib.Model.AVLTreeNode`1._right">
+            <summary>
+            Root's right descendent.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.Value">
+            <summary>
+            Node's value.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.Parent">
+            <summary>
+            Node's parent reference.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.Left">
+            <summary>
+            Reference on the left descendent.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.Right">
+            <summary>
+            Reference on the right descendent.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.LeftHeight">
+            <summary>
+            Property height left tree.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.RightHeight">
+            <summary>
+            Property of height right tree.
+            </summary>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.State">
+            <summary>
+            State of tree.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.#ctor">
+            <summary>
+            Constructor without parameter.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.#ctor(`0)">
+            <summary>
+            Constructor AVL tree node class.
+            </summary>
+            <param name="value">Value of node.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.#ctor(`0,AVLTreeLib.Model.AVLTreeNode{`0},AVLTreeLib.Model.AVLTree{`0})">
+            <summary>
+            Node's constructor.
+            </summary>
+            <param name="value">Value of node.</param>
+            <param name="parent">Parent of node.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.#ctor(`0,AVLTreeLib.Model.AVLTreeNode{`0},AVLTreeLib.Model.AVLTreeNode{`0})">
+            <summary>
+            Constructor AVL tree node class.
+            </summary>
+            <param name="value">Node's value.</param>
+            <param name="left">Root's left descendent.</param>
+            <param name="right">Root's right descendent.</param>
+        </member>
+        <member name="P:AVLTreeLib.Model.AVLTreeNode`1.BalanceFactor">
+            <summary>
+            Balance factor.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.CompareTo(`0)">
+            <summary>
+            Method is implementing IComparable interface.
+            </summary>
+            <param name="other">Node for comparison.</param>
+            <returns>Return 1 if other less then current.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.MaxChildHeight(AVLTreeLib.Model.AVLTreeNode{`0})">
+            <summary>
+            Method finds height.
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.LeftRotation">
+            <summary>
+            Method left rotation tree. 
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.RightRotation">
+            <summary>
+            Method right rotation tree.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.ReplaceRoot(AVLTreeLib.Model.AVLTreeNode{`0})">
+            <summary>
+            Replace root's parent link on himself.
+            </summary>
+            <param name="root">New root.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.Balance">
+            <summary>
+            Balance method.
+            </summary>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.Insert(AVLTreeLib.Model.AVLTreeNode{`0})">
+            <summary>
+            Insert node in left or right node.
+            </summary>
+            <param name="node">Node.</param>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.Equals(System.Object)">
+            <summary>
+            Comparing one node with another.
+            </summary>
+            <param name="obj">The compared node.</param>
+            <returns>True if equal. False if not equal.</returns>
+        </member>
+        <member name="M:AVLTreeLib.Model.AVLTreeNode`1.GetHashCode">
+            <summary>
+            Calculate hash code.
+            </summary>
+            <returns>The total hash code.</returns>
+        </member>
+    </members>
+</doc>

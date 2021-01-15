@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SerializersTests</name>
+    </assembly>
+    <members>
+        <member name="T:Serializers.Serializers.Tests.XMLSerializerTests">
+            <summary>
+            Class for testing XMLSerializer.
+            </summary>
+        </member>
+    </members>
+</doc>
