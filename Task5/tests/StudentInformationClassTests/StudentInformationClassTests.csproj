@@ -53,14 +53,18 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="EntityTests.cs" />
+    <Compile Include="RepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudentInformationClass\StudentInformationClass.csproj">
+    <ProjectReference Include="..\..\src\AVLTreeLib\AVLTreeLib.csproj">
+      <Project>{14662828-A7D2-4F3C-BEDF-6759CFA936B2}</Project>
+      <Name>AVLTreeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\StudentInformationClass\StudentInformationClass.csproj">
       <Project>{A5538E51-7CAA-401F-9BB4-3D28DF1C26BE}</Project>
       <Name>StudentInformationClass</Name>
     </ProjectReference>
