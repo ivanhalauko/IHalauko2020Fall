@@ -8,9 +8,13 @@ namespace StudentInformationClass
     [Serializable]
     public class StudentInfo : Entity
     {
-        /// <summary>
-        /// Property student's name.
-        /// </summary>
-        public string StudentName { get; set; }
+		public StudentInfo(): base() { }
+
+		/// <summary>
+		/// Property student's name.
+		/// </summary>
+		public string StudentName { get; set; }
+
+
     }
 }

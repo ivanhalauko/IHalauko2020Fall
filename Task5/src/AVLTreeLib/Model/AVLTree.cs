@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace AVLTreeLib.Model
 {
+	[Serializable]
 	public class AVLTree<T> : IAVLTree<T> where T : IComparable
 	{
 		/// <summary>
@@ -52,7 +54,7 @@ namespace AVLTreeLib.Model
 				//создание левого узла, если его нет
 				if (node.Left == null)
 				{
-					node.Left = new AVLTreeNode<T>(value, node, this);
+					node.Left = new AVLTreeNode<T>(value, node, this) ;
 				}
 				else
 				{
@@ -63,7 +65,7 @@ namespace AVLTreeLib.Model
 			{
 				if (node.Right == null)
 				{
-					node.Right = new AVLTreeNode<T>(value, node, this);
+					node.Right = new AVLTreeNode<T>(value, node, this) ;
 				}
 				else
 				{

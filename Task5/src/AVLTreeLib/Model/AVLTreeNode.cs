@@ -1,5 +1,6 @@
 ﻿using AVLTreeLib.Enum;
 using System;
+using System.Xml.Serialization;
 
 namespace AVLTreeLib.Model
 {
@@ -7,17 +8,19 @@ namespace AVLTreeLib.Model
     /// Node's type.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-	public class AVLTreeNode<T> : IComparable<T> where T : IComparable
+    [Serializable]
+    public class AVLTreeNode<T> : IComparable<T> where T : IComparable
 	{
         /// <summary>
         /// Field tree.
         /// </summary>
+        //[NonSerialized]
         AVLTree<T> _tree;
 
-        /// <summary>
-        /// Root's left descendent.
-        /// </summary>
-        AVLTreeNode<T> _left;
+		/// <summary>
+		/// Root's left descendent.
+		/// </summary>
+		AVLTreeNode<T> _left;
 
         /// <summary>
         /// Root's right descendent.
@@ -205,14 +208,14 @@ namespace AVLTreeLib.Model
                     this.Parent.Right = root;
                 }
             }
-            else
-            {
+			else
+			{
 				if (_tree != null)
-				{            
-                    _tree.Root = root;
-                }             
-            }
-            root.Parent = this.Parent;
+				{
+					_tree.Root = root;
+				}
+			}
+			root.Parent = this.Parent;
             this.Parent = root;
         }
 

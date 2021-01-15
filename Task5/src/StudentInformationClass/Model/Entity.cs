@@ -32,7 +32,6 @@ namespace StudentInformationClass
             {
                 throw new ArgumentNullException();
             }
-
         }
 
         /// <summary>
