@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAO.DataAccesLayer</name>
+    </assembly>
+    <members>
+        <member name="T:DAO.DataAccesLayer.CRUDForDbo.ADO`1">
+            <summary>
+            Class with implemented CRUD methods.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:DAO.DataAccesLayer.CRUDForDbo.ADO`1.ConnectionString">
+            <summary>
+            Connection string property to database.
+            </summary>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.#ctor(System.String)">
+            <summary>
+            Constructor with parameter.
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.CreateElement(`0)">
+            <summary>
+            Create element and add to data base.
+            </summary>
+            <param name="substance">Object type of T.</param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.DeleteElement(System.Int32)">
+            <summary>
+            Delete element from data base.
+            </summary>
+            <param name="byId">Element's Id.</param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.ReadAllElementFromDatabase">
+            <summary>
+            Read all elements from database.
+            </summary>
+            <returns>Return elements from data base.</returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.ReadElementFromDatabase(System.Int32)">
+            <summary>
+            Read all elements from database.
+            </summary>
+            <param name="byId">Element's Id.</param>
+            <returns>Return element from data base.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.ToEnumerable(System.Data.DataTable)" -->
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.UpdateDatabase(`0)">
+            <summary>
+            Update all elements in database.
+            </summary>
+            <param name="substance">Substance with new data.</param>
+            <returns>Returns updated element.</returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.GetUpdateParameter(System.Object)">
+            <summary>
+            Private method for get property from objects and add their to list for sqlParameters
+            </summary>
+            <param name="obj">Parameter.</param>
+            <returns>Returns list of sqlParameters.</returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ADO`1.GetAddParameter(System.Object)">
+            <summary>
+            Get all method's property and add to list as sqlParameters. 
+            </summary>
+            <param name="obj">Object.</param>
+            <returns>Return list of parameters.</returns>
+        </member>
+        <member name="T:DAO.DataAccesLayer.CRUDForDbo.ICRUD`1">
+            <summary>
+            Interface describes CRUD methods.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ICRUD`1.CreateElement(`0)">
+            <summary>
+            Create elements in database.
+            </summary>
+            <param name="substance">Object add in database.</param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ICRUD`1.ReadElementFromDatabase(System.Int32)">
+            <summary>
+            Get object by Id from table in database.
+            </summary>
+            <param name="byId">Object's id.</param>
+            <returns>Returns object by id.</returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ICRUD`1.UpdateDatabase(`0)">
+            <summary>
+            Method to update all objects from database tables.
+            </summary>
+            <param name="substance">Object with parameters to be changed.</param>
+            <returns>Returns changed object.</returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.CRUDForDbo.ICRUD`1.DeleteElement(System.Int32)">
+            <summary>
+            Delete object from table by Id.
+            </summary>
+            <param name="byId">Object's id.</param>
+        </member>
+        <member name="T:DAO.DataAccesLayer.Factory.AbstractFactory">
+            <summary>
+            Abstract factory to get access to database tables.
+            </summary>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateStudents">
+            <summary>
+            Create Students abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateGroups">
+            <summary>
+            Create Groups abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateExamTerms">
+            <summary>
+            Create ExamTerms abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateExamStudResults">
+            <summary>
+            Create ExamStudResults abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateExamForGroup">
+            <summary>
+            Create ExamForGroup abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.AbstractFactory.CreateExam">
+            <summary>
+            Create Exam abstract method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DAO.DataAccesLayer.Factory.ADOFactory">
+            <summary>
+            ADO factory class.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.Exam">
+            <summary>
+            Represent access to Exam table.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.ExamForGroup">
+            <summary>
+            Represent access to ExamForGroup table.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.ExamStudResults">
+            <summary>
+            Represent access to ExamStudResults table.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.ExamTerms">
+            <summary>
+            Represent access to ExamTerms table.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.Groups">
+            <summary>
+            Represent access to Groups table.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Factory.ADOFactory.Students">
+            <summary>
+            Represent access to Students table.
+            </summary>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.#ctor(System.String)">
+            <summary>
+            Constructor to initializing access with tables and get connection string to database.
+            </summary>
+            <param name="dbConnectionString"></param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateExam">
+            <summary>
+            Factory method to create Exam table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateExamForGroup">
+            <summary>
+            Factory method to create ExamForGroup table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateExamStudResults">
+            <summary>
+            Factory method to create ExamStudResults table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateExamTerms">
+            <summary>
+            Factory method to create ExamTerms table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateGroups">
+            <summary>
+            Factory method to create Groups table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Factory.ADOFactory.CreateStudents">
+            <summary>
+            Factory method to create Students table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DAO.DataAccesLayer.Singleton.SingletonAccessToDbo">
+            <summary>
+            Access class to database.
+            </summary>
+        </member>
+        <member name="F:DAO.DataAccesLayer.Singleton.SingletonAccessToDbo._instance">
+            <summary>
+            Field _instance.
+            </summary>
+        </member>
+        <member name="P:DAO.DataAccesLayer.Singleton.SingletonAccessToDbo.Factory">
+            <summary>
+            Property Factory.
+            </summary>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Singleton.SingletonAccessToDbo.#ctor(DAO.DataAccesLayer.Factory.AbstractFactory)">
+            <summary>
+            Constuctor with parameters.
+            </summary>
+            <param name="factory">Return Factory field.</param>
+        </member>
+        <member name="M:DAO.DataAccesLayer.Singleton.SingletonAccessToDbo.GetInstance(DAO.DataAccesLayer.Factory.AbstractFactory)">
+            <summary>
+            Method to create _instance.
+            </summary>
+            <param name="factory">Input database factory.</param>
+            <returns>Singleton instance.</returns>
+        </member>
+    </members>
+</doc>

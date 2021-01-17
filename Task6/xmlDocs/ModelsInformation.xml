@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModelsInformation</name>
+    </assembly>
+    <members>
+        <member name="P:ModelsInformation.Models.Exam.ExamName">
+            <summary>
+            Student's exam name property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamForGroup.IDExamTerm">
+            <summary>
+            Student's examination term ID property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamForGroup.IDExam">
+            <summary>
+            Student's exam ID property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamForGroup.IDGroupe">
+            <summary>
+            Student's groupe ID property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamForGroup.DateGroupeExam">
+            <summary>
+            Student's examination date property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamStudResults.IDStudent">
+            <summary>
+            Student's ID property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamStudResults.IDExamForGroupe">
+            <summary>
+            Student's groupe ID property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamStudResults.Rating">
+            <summary>
+            Student's rating after exam property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.ExamTerms.ExamTermName">
+            <summary>
+            Student's exam name property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Groups.GroupeName">
+            <summary>
+            Student's groupe name property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Students.Name">
+            <summary>
+            Student's name property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Students.Surname">
+            <summary>
+            Student's surname property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Students.Patronymic">
+            <summary>
+            Student's patronymic property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Students.BirthDate">
+            <summary>
+            Student's birth date property.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Models.Students.IDGroupe">
+            <summary>
+            Student's groupe ID property.
+            </summary>
+        </member>
+        <member name="T:ModelsInformation.Interfaces.ISubstance">
+            <summary>
+            Interface substances class.
+            </summary>
+        </member>
+        <member name="P:ModelsInformation.Interfaces.ISubstance.Id">
+            <summary>
+            Property interfaces's Id.
+            </summary>
+        </member>
+    </members>
+</doc>
