@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SQLServer.Task6.CvsReportManager.ServicesTests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,6 +54,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="CvsReportManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ExcelTests.cs" />
   </ItemGroup>
@@ -60,9 +62,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SQLServer.Task6.CvsReportManager.Services\SQLServer.Task6.CvsReportManager.Services.csproj">
+    <ProjectReference Include="..\..\src\SQLServer.Task6.CvsReportManager.Services\SQLServer.Task6.CvsReportManager.Services.csproj">
       <Project>{F51011AD-088D-4767-AF14-56EF9786F2C6}</Project>
       <Name>SQLServer.Task6.CvsReportManager.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLServerViewTests\SQLServerViewTests.csproj">
+      <Project>{36245139-2ff6-4d3b-9b5f-d3b7e8f8535c}</Project>
+      <Name>SQLServerViewTests</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

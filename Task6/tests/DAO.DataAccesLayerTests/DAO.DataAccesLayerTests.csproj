@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\DAO.DataAccesLayerTests.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,9 +61,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO.DataAccesLayer\DAO.DataAccesLayer.csproj">
+    <ProjectReference Include="..\..\src\DAO.DataAccesLayer\DAO.DataAccesLayer.csproj">
       <Project>{A99820AF-2EA6-4CC9-9C2E-CEE1B235803E}</Project>
       <Name>DAO.DataAccesLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\ModelsInformation\ModelsInformation.csproj">
+      <Project>{dcf8d106-89a3-4c54-8372-a69a379bb263}</Project>
+      <Name>ModelsInformation</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
