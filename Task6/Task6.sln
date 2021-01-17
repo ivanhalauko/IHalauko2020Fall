@@ -3,9 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4421391D-CF85-4464-9E82-FA3083502158}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ABC5BFDA-74A2-487F-A913-CA3B35412F00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsInformation", "src\ModelsInformation\ModelsInformation.csproj", "{DCF8D106-89A3-4C54-8372-A69A379BB263}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLServer.Database", "src\SQLServer.Database\SQLServer.Database.sqlproj", "{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCF8D106-89A3-4C54-8372-A69A379BB263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF8D106-89A3-4C54-8372-A69A379BB263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF8D106-89A3-4C54-8372-A69A379BB263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF8D106-89A3-4C54-8372-A69A379BB263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DCF8D106-89A3-4C54-8372-A69A379BB263} = {4421391D-CF85-4464-9E82-FA3083502158}
+		{3522F50C-0DCF-421D-A72E-2AA64EBB5B72} = {4421391D-CF85-4464-9E82-FA3083502158}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CACA2BE1-AE49-4AEA-8F9D-FCD96AEDD50A}
