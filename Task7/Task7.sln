@@ -7,9 +7,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8C61980A-9FE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2BC08B75-BFAA-48BE-B6FB-A9288BC6D933}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SQLServer.Database", "src\SQLServer.Database\SQLServer.Database.sqlproj", "{9E552A92-9DC8-4D64-8E1F-D8812592F048}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E552A92-9DC8-4D64-8E1F-D8812592F048} = {8C61980A-9FEC-411F-9E8F-3E4C112F14B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9143B803-56DA-4A0D-A0A3-BFEE4C9E01C3}
