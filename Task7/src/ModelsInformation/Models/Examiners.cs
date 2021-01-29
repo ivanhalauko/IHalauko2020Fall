@@ -1,4 +1,5 @@
 ﻿using ModelsInformation.Interfaces;
+using System.Data.Linq.Mapping;
 
 namespace ModelsInformation.Models
 {

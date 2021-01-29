@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7825B5CF-1632-4E24-A866-B15AC8BF9A26}</ProjectGuid>
+    <ProjectGuid>{16387566-A72B-45F7-8B3A-BAC0A81D8CFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ModelsInformation</RootNamespace>
-    <AssemblyName>ModelsInformation</AssemblyName>
+    <RootNamespace>DAO.DataAccesLayer</RootNamespace>
+    <AssemblyName>DAO.DataAccesLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -36,27 +36,27 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ISubstance.cs" />
-    <Compile Include="Models\ExamForGroup.cs" />
-    <Compile Include="Models\Examiners.cs" />
-    <Compile Include="Models\ExamStudResults.cs" />
-    <Compile Include="Models\ExamTerms.cs" />
-    <Compile Include="Models\Groups.cs" />
-    <Compile Include="Models\Specialties.cs" />
-    <Compile Include="Models\Students.cs" />
-    <Compile Include="Models\Subjects.cs" />
+    <Compile Include="CRUDForDbo\ADOLinqToSQL.cs" />
+    <Compile Include="CRUDForDbo\ICRUD.cs" />
+    <Compile Include="Factory\AbstractFactory.cs" />
+    <Compile Include="Factory\ADOFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ModelsInformation\ModelsInformation.csproj">
+      <Project>{7825b5cf-1632-4e24-a866-b15ac8bf9a26}</Project>
+      <Name>ModelsInformation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
