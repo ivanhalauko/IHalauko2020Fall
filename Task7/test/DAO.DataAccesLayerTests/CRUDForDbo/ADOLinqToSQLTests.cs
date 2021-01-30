@@ -117,10 +117,10 @@ namespace DAO.DataAccesLayer.CRUDForDbo.Tests
 
             var lastAddedId = examiners.ReadAllElementFromDatabase().ToList().Last().Id;
             examiners.UpdateDatabase(new Examiners() { Id = lastAddedId, Name = actualUpdateName, Surname = surname, Patronymic = patronymic });
-            var expectedUpdetedName = examiners.ReadElementFromDatabase(lastAddedId);
+            var expectedUpdatedName = examiners.ReadElementFromDatabase(lastAddedId);
             examiners.DeleteElement(lastAddedId); //clear last addded element
             //Assert
-            Assert.AreEqual(expectedUpdetedName.Name, actualUpdateName);
+            Assert.AreEqual(expectedUpdatedName.Name, actualUpdateName);
         }
     }
 }
