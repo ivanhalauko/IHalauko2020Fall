@@ -8,32 +8,39 @@ namespace DAO.DataAccesLayer.Singleton
     public class SingletonAccessToDbo
     {
         /// <summary>
+        /// Field _connectrionString.
+        /// </summary>
+        private string _dbConnectionString = null;
+        
+        /// <summary>
         /// Field _instance.
         /// </summary>
         private static SingletonAccessToDbo _instance = null;
+        
         /// <summary>
         /// Property Factory.
         /// </summary>
         public AbstractFactory Factory { get; set; } = null;
+
         /// <summary>
         /// Constuctor with parameters.
         /// </summary>
         /// <param name="factory">Return Factory field.</param>
-        private SingletonAccessToDbo(AbstractFactory factory)
+        private SingletonAccessToDbo(string _dbConnectionString)
         {
-            AbstractFactory Factory = factory;
+            if (Factory == null)
+                Factory = new ADOFactory(_dbConnectionString);           
         }
+
         /// <summary>
         /// Method to create _instance.
         /// </summary>
         /// <param name="factory">Input database factory.</param>
         /// <returns>Singleton instance.</returns>
-        public static SingletonAccessToDbo GetInstance(AbstractFactory factory)
+        public static SingletonAccessToDbo GetInstance(string _dbConnectionString)
         {
             if (_instance == null)
-            {
-                _instance = new SingletonAccessToDbo(factory);
-            }
+                _instance = new SingletonAccessToDbo(_dbConnectionString);
             return _instance;
         }
     }
