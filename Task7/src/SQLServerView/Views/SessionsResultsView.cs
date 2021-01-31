@@ -69,52 +69,53 @@ namespace SQLServerView.Views
         public SessionsResultsView(SingletonAccessToDbo singletonAccessToDbo, IView view) : base(singletonAccessToDbo, view)
         {
         }
-        ///// <summary>
-        ///// Method for get view.
-        ///// </summary>
-        ///// <param name="nameOfSession">Name of session parameter.</param>
-        ///// <param name="nameOfGroup">Name of group parameter.</param>
-        ///// <returns>Return view.</returns>
-        //public IEnumerable<SessionsResultsView> GetView(string nameOfSession, string nameOfGroup)
-        //{
-        //    IEnumerable<SessionsResultsView> sessionResultsView =
-        //        from itemSessionResult in View.ExamStudResults
-        //        join itemStudents in View.Students
-        //            on itemSessionResult.IDStudent equals itemStudents.Id
 
-        //        join itemExamForGroups in View.ExamsForGroups
-        //            on itemSessionResult.IDExamForGroupe equals itemExamForGroups.Id
+		/// <summary>
+		/// Method for get view.
+		/// </summary>
+		/// <param name="nameOfSession">Name of session parameter.</param>
+		/// <param name="nameOfGroup">Name of group parameter.</param>
+		/// <returns>Return view.</returns>
+		public IEnumerable<SessionsResultsView> GetView(string nameOfSession, string nameOfGroup)
+		{
+			IEnumerable<SessionsResultsView> sessionResultsView =
+				from itemSessionResult in View.ExamStudResults
+				join itemStudents in View.Students
+					on itemSessionResult.IDStudent equals itemStudents.Id
 
-        //        join itemGroups in View.Groups
-        //            on itemStudents.IDGroupe equals itemGroups.Id
+				join itemExamForGroups in View.ExamsForGroups
+					on itemSessionResult.IDExamForGroupe equals itemExamForGroups.Id
 
-        //        join itemSession in View.ExamTerms
-        //        on itemExamForGroups.IDExamTerm equals itemSession.Id
+				join itemGroups in View.Groups
+					on itemStudents.IDGroupe equals itemGroups.Id
 
-        //        join itemExam in View.Exams
-        //            on itemExamForGroups.IDExam equals itemExam.Id
+				join itemSession in View.ExamTerms
+				on itemExamForGroups.IDExamTerm equals itemSession.Id
 
-        //        where itemSession.ExamTermName == nameOfSession & itemGroups.GroupeName==nameOfGroup //& int.I //IsNullOrEmpty(itemSessionResult.Rating)!=true
+				join itemExam in View.Subjects
+					on itemExamForGroups.IDSubjects equals itemExam.Id
 
-        //        select new SessionsResultsView
-        //        {
-        //            NameOfSession = itemSession.ExamTermName,
-        //            NameOfGroup = itemGroups.GroupeName,
-        //            Surname = itemStudents.Surname,
-        //            Name = itemStudents.Name,
-        //            Patronymic = itemStudents.Patronymic,
-        //            NameOfExam = itemExam.ExamName,
-        //            Rating = itemSessionResult.Rating  
-        //        };
-        //    return sessionResultsView;
-        //}
+				where itemSession.ExamTermName == nameOfSession & itemGroups.GroupeName == nameOfGroup //& int.I //IsNullOrEmpty(itemSessionResult.Rating)!=true
 
-        /// <summary>
-        /// Method convert view to string.
-        /// </summary>
-        /// <param name="sessionResultView"></param>
-        /// <returns></returns>
-        public string ToString(IEnumerable<SessionsResultsView> sessionResultView)
+				select new SessionsResultsView
+				{
+					NameOfSession = itemSession.ExamTermName,
+					NameOfGroup = itemGroups.GroupeName,
+					Surname = itemStudents.Surname,
+					Name = itemStudents.Name,
+					Patronymic = itemStudents.Patronymic,
+					NameOfExam = itemExam.SubjectsName,
+					Rating = itemSessionResult.Rating
+				};
+			return sessionResultsView;
+		}
+
+		/// <summary>
+		/// Method convert view to string.
+		/// </summary>
+		/// <param name="sessionResultView"></param>
+		/// <returns></returns>
+		public string ToString(IEnumerable<SessionsResultsView> sessionResultView)
         {
             string[] header = { "SessionName; GroupName; Name; Surname; Patronymic; NameOfExam; Rating" };
             string[] data = sessionResultView.Select(p => string.Format("{0}; {1}; {2}; {3}; {4}; {5}; {6}", p.NameOfSession, p.NameOfGroup,

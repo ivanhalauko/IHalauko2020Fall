@@ -11,7 +11,7 @@ namespace SQLServerView.Interface
         /// <summary>
         /// Exams tables.
         /// </summary>
-        IEnumerable<Subjects> Subjects { get; }
+        IEnumerable<Subjects> Exams { get; }
 
         /// <summary>
         /// Exams for groups tables.
